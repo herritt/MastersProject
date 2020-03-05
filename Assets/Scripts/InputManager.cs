@@ -38,8 +38,8 @@ public class InputManager : MonoBehaviour
         //process movement of right thumbstick
         Vector2 rightStickVector2 = new Vector2(leftThumbstickMovement.x, leftThumbstickMovement.y) * Time.deltaTime;
 
-        Debug.Log("left " + leftThumbstickMovement);
-        Debug.Log("right " + rightThumbstickMovement);
+        //Debug.Log("left " + leftThumbstickMovement);
+        //Debug.Log("right " + rightThumbstickMovement);
     }
 
     void OnEnable()
