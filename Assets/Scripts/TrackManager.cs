@@ -8,8 +8,9 @@ public class TrackManager : MonoBehaviour
     private const int WAYPOINT_CHECK_DISTANCE = 20;
 
     public GameObject[] waypoints;
-    public GameObject[] DTG_Bubbles;
     public GameObject ship;
+
+    public GameObject staticDTG;
 
     public Vector3 waypoint;
 
@@ -17,6 +18,8 @@ public class TrackManager : MonoBehaviour
     int currentDtgIndex = 0;
 
     float[] distances = null;
+
+    float shipSpeed = 15;
 
 
     // Start is called before the first frame update
@@ -27,17 +30,8 @@ public class TrackManager : MonoBehaviour
         waypoint = new Vector3(waypoint.x, ship.transform.position.y,
             waypoint.z);
 
-        for (int i = 1; i < DTG_Bubbles.Length; i++)
-        {
-            DTG_Bubbles[i].SetActive(false);
-        }
 
         CalculateDistances();
-
-        for (int i = 0; i < distances.Length; i++)
-        {
-            Debug.Log("" + i + ": " + distances[i]);
-        }
 
     }
 
@@ -77,12 +71,12 @@ public class TrackManager : MonoBehaviour
             
         }
 
-        var t = 120f * Time.deltaTime;
+        var t = shipSpeed * Time.deltaTime;
 
         ship.transform.position = Vector3.MoveTowards(ship.transform.position, waypoint, t);
 
         Vector3 relativePos = waypoint - ship.transform.position;
-        ship.transform.rotation = Quaternion.Lerp(ship.transform.rotation, Quaternion.LookRotation(-relativePos), 0.2f * Time.deltaTime);
+        ship.transform.rotation = Quaternion.Lerp(ship.transform.rotation, Quaternion.LookRotation(-relativePos), shipSpeed / 30 * Time.deltaTime);
 
         CheckDistanceToGoBubble();
 
@@ -90,22 +84,8 @@ public class TrackManager : MonoBehaviour
     }
 
     void CheckDistanceToGoBubble()
-    {
-        if (currentDtgIndex >= DTG_Bubbles.Length) return;
-
-        if (Vector3.Distance(DTG_Bubbles[currentDtgIndex].transform.position,
-            ship.transform.position) < DTG_CHECK_DISTANCE)
-        {
-            DTG_Bubbles[currentDtgIndex].SetActive(false);
-            currentDtgIndex++;
-
-            if (currentDtgIndex >= DTG_Bubbles.Length) return;
-
-            DTG_Bubbles[currentDtgIndex].SetActive(true);
- 
-        }
-
-        TextMesh textMesh = DTG_Bubbles[currentDtgIndex].GetComponent<TextMesh>();
+    { 
+        TextMesh textMesh = staticDTG.GetComponent<TextMesh>();
         textMesh.text = "" + DistanceToGo().ToString("F2") + "nm to go\nSpeed required " + SpeedRequired() + "kts";
     }
 
