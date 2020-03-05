@@ -59,14 +59,22 @@ public class TrackManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentWaypointIndex == waypoints.Length) return;
+
         if (Vector3.Distance(waypoints[currentWaypointIndex].transform.position, ship.transform.position) < WAYPOINT_CHECK_DISTANCE)
         {
             if (currentWaypointIndex < waypoints.Length)
             {
                 currentWaypointIndex++;
             }
-            waypoint = waypoints[currentWaypointIndex].transform.position;
-            waypoint = new Vector3(waypoint.x, ship.transform.position.y, waypoint.z);
+
+            if (currentWaypointIndex < waypoints.Length)
+            {
+                waypoint = waypoints[currentWaypointIndex].transform.position;
+                waypoint = new Vector3(waypoint.x, ship.transform.position.y, waypoint.z);
+            }
+
+            
         }
 
         var t = 120f * Time.deltaTime;
@@ -83,30 +91,36 @@ public class TrackManager : MonoBehaviour
 
     void CheckDistanceToGoBubble()
     {
+        if (currentDtgIndex >= DTG_Bubbles.Length) return;
+
         if (Vector3.Distance(DTG_Bubbles[currentDtgIndex].transform.position,
             ship.transform.position) < DTG_CHECK_DISTANCE)
         {
             DTG_Bubbles[currentDtgIndex].SetActive(false);
             currentDtgIndex++;
 
-            if (currentDtgIndex < DTG_Bubbles.Length)
-            {
-                DTG_Bubbles[currentDtgIndex].SetActive(true);
-            }
+            if (currentDtgIndex >= DTG_Bubbles.Length) return;
 
+            DTG_Bubbles[currentDtgIndex].SetActive(true);
+ 
         }
 
         TextMesh textMesh = DTG_Bubbles[currentDtgIndex].GetComponent<TextMesh>();
-        textMesh.text = "" + DistanceToGo() + "nm to go\nSpeed required " + SpeedRequired() + "kts";
+        textMesh.text = "" + DistanceToGo().ToString("F2") + "nm to go\nSpeed required " + SpeedRequired() + "kts";
     }
 
     float DistanceToGo()
     {
         float distanceToNextWaypoint = Vector3.Distance(waypoints[currentWaypointIndex].transform.position, ship.transform.position);
 
+        float remainingDistanceAfterNextWaypoint = 0f;
 
+        for (int i = currentWaypointIndex; i < distances.Length; i++)
+        {
+            remainingDistanceAfterNextWaypoint += distances[i];
+        }
 
-        return 0f;
+        return (distanceToNextWaypoint + remainingDistanceAfterNextWaypoint)/1852.0f;
     }
 
     float SpeedRequired()
