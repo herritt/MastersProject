@@ -6,7 +6,8 @@ public class TrackManager : MonoBehaviour
 {
     private const int WAYPOINT_CHECK_DISTANCE = 10;
 
-    public GameObject[] waypoints;
+    public TrackDriver trackDriver;
+
     public GameObject ship;
 
     public GameObject staticDTG;
@@ -18,25 +19,19 @@ public class TrackManager : MonoBehaviour
 
     float[] distances = null;
 
-    float shipSpeed = 11;
-
     float passageDurationInMinutes = 15f;
 
     // Start is called before the first frame update
     void Start()
     {
-        waypoint = waypoints[0].transform.position;
-
-        waypoint = new Vector3(waypoint.x, ship.transform.position.y,
-            waypoint.z);
-
-
         CalculateDistances();
 
     }
 
     void CalculateDistances()
     {
+        GameObject[] waypoints = trackDriver.waypoints;
+
         distances = new float[waypoints.Length - 1];
 
         for (int i = 0; i < waypoints.Length - 1; i++)
@@ -53,33 +48,8 @@ public class TrackManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentWaypointIndex == waypoints.Length) return;
-
-        if (Vector3.Distance(waypoints[currentWaypointIndex].transform.position, ship.transform.position) < WAYPOINT_CHECK_DISTANCE)
-        {
-            if (currentWaypointIndex < waypoints.Length)
-            {
-                currentWaypointIndex++;
-            }
-
-            if (currentWaypointIndex < waypoints.Length)
-            {
-                waypoint = waypoints[currentWaypointIndex].transform.position;
-                waypoint = new Vector3(waypoint.x, ship.transform.position.y, waypoint.z);
-            }
-
-            
-        }
-
-        var t = shipSpeed * Time.deltaTime;
-
-        ship.transform.position = Vector3.MoveTowards(ship.transform.position, waypoint, t);
-
-        Vector3 relativePos = waypoint - ship.transform.position;
-        ship.transform.rotation = Quaternion.Lerp(ship.transform.rotation, Quaternion.LookRotation(-relativePos), shipSpeed / 30 * Time.deltaTime);
 
         CheckDistanceToGoBubble();
-
 
     }
 
@@ -91,6 +61,7 @@ public class TrackManager : MonoBehaviour
 
     float DistanceToGo()
     {
+        GameObject[] waypoints = trackDriver.waypoints;
         float distanceToNextWaypoint = Vector3.Distance(waypoints[currentWaypointIndex].transform.position, ship.transform.position);
 
         float remainingDistanceAfterNextWaypoint = 0f;

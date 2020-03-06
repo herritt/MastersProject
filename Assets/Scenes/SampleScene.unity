@@ -161,7 +161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4618546184181590, guid: 74d0740f4abc7e54fab50d33af2582da, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4618546184181590, guid: 74d0740f4abc7e54fab50d33af2582da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -206,32 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee48bc54d32f46a45b31c95032669956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 1350915015}
-  - {fileID: 8456779651729473261}
-  - {fileID: 8456779651729473260}
-  - {fileID: 8456779651729473259}
-  - {fileID: 8456779651729473258}
-  - {fileID: 197072808}
-  - {fileID: 2036480131}
-  - {fileID: 835228678}
-  - {fileID: 1706357039}
-  - {fileID: 857984914}
-  - {fileID: 1711372486}
-  - {fileID: 1974346259}
-  - {fileID: 811293661}
-  - {fileID: 473363585}
-  - {fileID: 179099718}
-  - {fileID: 1745055805}
-  - {fileID: 414293077}
-  - {fileID: 1772446122}
-  - {fileID: 515914334}
-  - {fileID: 1108671560}
-  - {fileID: 1701102313}
-  - {fileID: 1284805161}
-  - {fileID: 1353319214}
-  - {fileID: 1640931715}
-  - {fileID: 1131174398}
+  trackDriver: {fileID: 352908263}
   ship: {fileID: 352908262}
   staticDTG: {fileID: 979747310}
   waypoint: {x: 0, y: 0, z: 0}
@@ -290,7 +265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4412613268411976, guid: ec5d6bc6e2d4942448a8b3d9eddf3865, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4412613268411976, guid: ec5d6bc6e2d4942448a8b3d9eddf3865, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -618,6 +593,46 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1468766161}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &352908263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352908262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29a5861bfb93fb468e0a39b06b2fd9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 1350915015}
+  - {fileID: 8456779651729473261}
+  - {fileID: 8456779651729473260}
+  - {fileID: 8456779651729473259}
+  - {fileID: 8456779651729473258}
+  - {fileID: 197072808}
+  - {fileID: 2036480131}
+  - {fileID: 835228678}
+  - {fileID: 1706357039}
+  - {fileID: 857984914}
+  - {fileID: 1711372486}
+  - {fileID: 1974346259}
+  - {fileID: 811293661}
+  - {fileID: 473363585}
+  - {fileID: 179099718}
+  - {fileID: 1745055805}
+  - {fileID: 414293077}
+  - {fileID: 1772446122}
+  - {fileID: 515914334}
+  - {fileID: 1108671560}
+  - {fileID: 1701102313}
+  - {fileID: 1284805161}
+  - {fileID: 1353319214}
+  - {fileID: 1640931715}
+  - {fileID: 1131174398}
+  waypoint: {x: 0, y: 0, z: 0}
+  shipSpeed: 11
 --- !u!65 &352908264
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1047,7 +1062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 430372, guid: e05b3e8a9e80e034c86657cc7993378e, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 430372, guid: e05b3e8a9e80e034c86657cc7993378e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1104,7 +1119,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -1195,7 +1210,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!4 &723616666 stripped
 Transform:
@@ -1833,6 +1848,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4703804435602058, guid: c3672f9b2e0555e418f7dcc46c6d0d10, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64097604951717208, guid: c3672f9b2e0555e418f7dcc46c6d0d10,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2541,7 +2561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: fbb1810807a93534fbd814fb6b0aa55f, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: fbb1810807a93534fbd814fb6b0aa55f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3922,7 +3942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010536602162, guid: 44fff922d28fc854b945bfad32be0deb, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4000010536602162, guid: 44fff922d28fc854b945bfad32be0deb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

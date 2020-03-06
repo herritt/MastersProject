@@ -23,11 +23,12 @@ public class OnTrackCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Enter + " + other.gameObject);
 
         GameObject otherParent = other.gameObject.transform.parent.gameObject;
 
         MeshRenderer meshRenderer = otherParent.GetComponent<MeshRenderer>();
+
+        if (meshRenderer == null) return;
 
         if (other.name.Contains("left"))
         {
@@ -43,7 +44,6 @@ public class OnTrackCollision : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Exit");
         MeshRenderer meshRenderer = other.gameObject.GetComponentInParent<MeshRenderer>();
         meshRenderer.material = blackmMaterial;
     }
