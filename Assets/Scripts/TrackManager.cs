@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class TrackManager : MonoBehaviour
 {
-    private const int DTG_CHECK_DISTANCE = 100;
-    private const int WAYPOINT_CHECK_DISTANCE = 20;
+    private const int WAYPOINT_CHECK_DISTANCE = 10;
 
     public GameObject[] waypoints;
     public GameObject ship;
@@ -19,8 +18,9 @@ public class TrackManager : MonoBehaviour
 
     float[] distances = null;
 
-    float shipSpeed = 15;
+    float shipSpeed = 11;
 
+    float passageDurationInMinutes = 15f;
 
     // Start is called before the first frame update
     void Start()
@@ -86,7 +86,7 @@ public class TrackManager : MonoBehaviour
     void CheckDistanceToGoBubble()
     { 
         TextMesh textMesh = staticDTG.GetComponent<TextMesh>();
-        textMesh.text = "" + DistanceToGo().ToString("F2") + "nm to go\nSpeed required " + SpeedRequired() + "kts";
+        textMesh.text = "" + DistanceToGo().ToString("F2") + "nm to go\nSpeed required " + SpeedRequired().ToString("F2") + "kts";
     }
 
     float DistanceToGo()
@@ -100,11 +100,24 @@ public class TrackManager : MonoBehaviour
             remainingDistanceAfterNextWaypoint += distances[i];
         }
 
-        return (distanceToNextWaypoint + remainingDistanceAfterNextWaypoint)/1852.0f;
+        return (distanceToNextWaypoint + remainingDistanceAfterNextWaypoint)/1852f;
     }
 
     float SpeedRequired()
     {
-        return 0f;
+        float distance = DistanceToGo();
+        float time = TimeRemainingInHours();
+
+        return distance / time;
+    }
+
+    float TimeRemainingInHours()
+    {
+
+        float timeInSecondsSinceStart = Time.time;
+        float remainingTimeInSeconds = (passageDurationInMinutes * 60f) - timeInSecondsSinceStart;
+
+        return remainingTimeInSeconds / 3600;
+
     }
 }
