@@ -6,7 +6,6 @@ public class Orientate : MonoBehaviour
 {
     public GameObject other;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +15,6 @@ public class Orientate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //Vector3 relativePos = other.transform.position - gameObject.transform.position;
-        //gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, Quaternion.LookRotation(-relativePos), Time.deltaTime);
-        transform.LookAt(other.transform);
+       transform.LookAt(other.transform);
     }
 }
