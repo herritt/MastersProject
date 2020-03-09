@@ -24,9 +24,11 @@ public class UpdateTextForTextBox : MonoBehaviour
     void Update()
     {
         string speed = "" + trackDriver.shipSpeed;
+        float range = Vector3.Distance(thisShip.transform.position, ship.transform.position);
 
         textMeshProUGUI.text = name + "\n" +
-            "Speed " + speed + "Kts";
+            "Speed: " + speed + "Kts" + "\n" +
+            "Range: " + (range * 1.094).ToString("F0") + "yds";
 
     }
 }
