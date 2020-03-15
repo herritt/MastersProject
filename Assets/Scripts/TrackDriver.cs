@@ -54,7 +54,7 @@ public class TrackDriver : MonoBehaviour
 
         }
 
-        //var t = shipSpeed * Time.deltaTime;
+        var t = shipSpeed * Time.deltaTime;
 
         //float tidalSetBearing = 45;
         //float tidalSetSpeed = 50000f; // .5 m/s or roughly 1 kt
@@ -64,7 +64,7 @@ public class TrackDriver : MonoBehaviour
 
         //Debug.Log(tidalPos);
 
-        ship.transform.position = Vector3.MoveTowards(ship.transform.position, waypoint + tidalPos, t);
+        ship.transform.position = Vector3.MoveTowards(ship.transform.position, waypoint, t);
 
         Vector3 relativePos = waypoint - ship.transform.position;
         ship.transform.rotation = Quaternion.Lerp(ship.transform.rotation, Quaternion.LookRotation(-relativePos), shipSpeed / 30 * Time.deltaTime);

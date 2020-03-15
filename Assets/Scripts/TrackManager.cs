@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class TrackManager : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class TrackManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        XRSettings.eyeTextureResolutionScale = 1.5f;
         CalculateDistances();
 
     }
