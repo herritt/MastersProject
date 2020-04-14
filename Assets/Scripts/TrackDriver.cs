@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrackDriver : MonoBehaviour
 {
-    private const int WAYPOINT_CHECK_DISTANCE = 10;
+    private const int WAYPOINT_CHECK_DISTANCE = 20;
     private const float KTS_TO_MPS = 1.944f;
 
     public GameObject[] waypoints;
@@ -13,21 +13,12 @@ public class TrackDriver : MonoBehaviour
     public float shipSpeed = 11;
     GameObject ship;
 
-
-    private void Awake()
-    {
-        ship = gameObject;
-        for (int i = 0; i < waypoints.Length; i++)
-        {
-            waypoint = waypoints[currentWaypointIndex].transform.position;
-            waypoint = new Vector3(waypoint.x, ship.transform.position.y, waypoint.z);
-        }
-    }
-
     // Start is called before the first frame update
     void Start()
-    {       
+    {
+        ship = gameObject;
         waypoint = waypoints[0].transform.position;
+        waypoint = new Vector3(waypoint.x, ship.transform.position.y, waypoint.z);
 
         // convert shipSpeed from kts to units per second
         shipSpeed /= KTS_TO_MPS;
@@ -49,20 +40,13 @@ public class TrackDriver : MonoBehaviour
             if (currentWaypointIndex < waypoints.Length)
             {
                 waypoint = waypoints[currentWaypointIndex].transform.position;
+                waypoint = new Vector3(waypoint.x, ship.transform.position.y, waypoint.z);
             }
 
 
         }
 
         var t = shipSpeed * Time.deltaTime;
-
-        //float tidalSetBearing = 45;
-        //float tidalSetSpeed = 50000f; // .5 m/s or roughly 1 kt
-        //float distance = tidalSetSpeed * Time.deltaTime;
-
-        //Vector3 tidalPos = Quaternion.AngleAxis(tidalSetBearing, Vector3.up) * Vector3.forward * distance;
-
-        //Debug.Log(tidalPos);
 
         ship.transform.position = Vector3.MoveTowards(ship.transform.position, waypoint, t);
 
