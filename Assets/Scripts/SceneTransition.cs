@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class SceneTransition : MonoBehaviour
 {
     public GameObject panel;
-    public System.String newScene;
+    private String newScene;
     public float fadeInSpeed = 2f;
     public float fadeOutSpeed = 2f;
 
@@ -17,25 +18,30 @@ public class SceneTransition : MonoBehaviour
         panel.GetComponent<Image>().CrossFadeAlpha(0, fadeInSpeed, true);
     }
 
-    public void TransitionOut()
+    public void TransitionOut(string scene)
     {
-        StartCoroutine(FadeThenLoadScene());
+        newScene = scene;
+        StartCoroutine(FadeIn());
+        
     }
 
-    IEnumerator FadeThenLoadScene()
+    public void Exit()
     {
-        // start fading
-        yield return StartCoroutine(FadeIn());
-        // code here will run once the fading coroutine has completed
-        SceneManager.LoadScene(newScene, LoadSceneMode.Single);
+        // save any game data here
+#if UNITY_EDITOR
+        // Application.Quit() does not work in the editor so
+        // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+         Application.Quit();
+#endif
     }
 
     private IEnumerator FadeIn()
     {
         panel.GetComponent<Image>().CrossFadeAlpha(1, fadeOutSpeed, true);
         yield return new WaitForSeconds(fadeOutSpeed);
-        
- 
+        SceneManager.LoadScene(newScene, LoadSceneMode.Single);
     }
 
 }

@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UserStudyMenu.unity
     guid: 163dc854b502fd941ab66f6bc84dce9a
+  - enabled: 1
+    path: Assets/Scenes/TrackArnaInstructions.unity
+    guid: 94870a70e3ccc134796bf4655f53b3e3
   m_configObjects: {}
