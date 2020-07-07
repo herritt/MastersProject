@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TrackArnaInstructions.unity
     guid: 94870a70e3ccc134796bf4655f53b3e3
+  - enabled: 1
+    path: Assets/Scenes/DangerArnaInstructions.unity
+    guid: 592a04df6949bb1459b3eeae8b7568b7
+  - enabled: 1
+    path: Assets/Scenes/ClearingArnaInstructions.unity
+    guid: cee08799fc5e00b4bb16c8a8969f63db
   m_configObjects: {}
