@@ -618,6 +618,46 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: ClearingArnaInstructions
       objectReference: {fileID: 0}
+    - target: {fileID: 680006943979993159, guid: aa84c1544fa598f49aaacecf39f73e7d,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 691776460}
+    - target: {fileID: 680006943979993159, guid: aa84c1544fa598f49aaacecf39f73e7d,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TransitionOut
+      objectReference: {fileID: 0}
+    - target: {fileID: 680006943979993159, guid: aa84c1544fa598f49aaacecf39f73e7d,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 680006943979993159, guid: aa84c1544fa598f49aaacecf39f73e7d,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: PassageArnaInstructions
+      objectReference: {fileID: 0}
+    - target: {fileID: 680006942519003317, guid: aa84c1544fa598f49aaacecf39f73e7d,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 691776460}
+    - target: {fileID: 680006942519003317, guid: aa84c1544fa598f49aaacecf39f73e7d,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TransitionOut
+      objectReference: {fileID: 0}
+    - target: {fileID: 680006942519003317, guid: aa84c1544fa598f49aaacecf39f73e7d,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 680006942519003317, guid: aa84c1544fa598f49aaacecf39f73e7d,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: ShipAvoidanceArnaInstructions
+      objectReference: {fileID: 0}
     - target: {fileID: 680006942142872653, guid: aa84c1544fa598f49aaacecf39f73e7d,
         type: 3}
       propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target

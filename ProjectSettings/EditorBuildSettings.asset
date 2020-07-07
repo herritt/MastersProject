@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ClearingArnaInstructions.unity
     guid: cee08799fc5e00b4bb16c8a8969f63db
+  - enabled: 1
+    path: Assets/Scenes/PassageArnaInstructions.unity
+    guid: 2f6316d535efa4e46beaffbb3c6820af
+  - enabled: 1
+    path: Assets/Scenes/ShipAvoidanceArnaInstructions.unity
+    guid: 718dfe7b72b608347bc36d786991ab00
   m_configObjects: {}
