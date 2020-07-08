@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu/Instructions/ShipAvoidanceArnaInstructions.unity
     guid: 718dfe7b72b608347bc36d786991ab00
+  - enabled: 1
+    path: Assets/Scenes/ARNAScenes/TrackARNAUserStudy.unity
+    guid: 155a084279e64e34fae51f5ddcdf3174
   m_configObjects: {}
