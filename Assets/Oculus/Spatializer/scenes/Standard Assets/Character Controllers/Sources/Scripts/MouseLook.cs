@@ -30,8 +30,16 @@ public class MouseLook : MonoBehaviour {
 
 	float rotationY = 0F;
 
+    public bool toggledOn = true;
+
 	void Update ()
 	{
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            toggledOn = !toggledOn;
+        }
+
+        if (!toggledOn) return;
 		if (axes == RotationAxes.MouseXAndY)
 		{
 			float rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivityX;
