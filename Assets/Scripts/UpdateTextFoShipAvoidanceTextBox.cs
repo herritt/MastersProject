@@ -9,7 +9,6 @@ public class UpdateTextFoShipAvoidanceTextBox : MonoBehaviour
     private const int METRES_PER_NAUTICAL_MILE = 1852;
     private const float YARDS_PER_METRE = 1.094f;
 
-    public string name;
     TextMeshProUGUI textMeshProUGUI;
     public GameObject ownship;
     public GameObject thisShip;
@@ -34,14 +33,6 @@ public class UpdateTextFoShipAvoidanceTextBox : MonoBehaviour
         StartCoroutine(UpdateText());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-        
-
-    }
-
     private IEnumerator UpdateText()
     {
         while (true)
@@ -51,7 +42,7 @@ public class UpdateTextFoShipAvoidanceTextBox : MonoBehaviour
 
             float range = Vector3.Distance(thisShip.transform.position, ownship.transform.position);
 
-            textMeshProUGUI.text = name + "\n" +
+            textMeshProUGUI.text = 
                 "Speed: \t" + speed.ToString("F1") + "Kts" + "\n" +
                 "Range: \t" + (range * YARDS_PER_METRE).ToString("F0") + "yds\n" +
                 "CPA: \t\t" + (cpa * YARDS_PER_METRE).ToString("F0") + "yds"; 
