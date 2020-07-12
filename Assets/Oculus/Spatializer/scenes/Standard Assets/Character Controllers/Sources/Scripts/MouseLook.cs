@@ -37,6 +37,7 @@ public class MouseLook : MonoBehaviour {
         if (Input.GetKeyUp(KeyCode.Space))
         {
             toggledOn = !toggledOn;
+            Cursor.visible = !toggledOn;
         }
 
         if (!toggledOn) return;
@@ -67,5 +68,7 @@ public class MouseLook : MonoBehaviour {
 		// Make the rigid body not change rotation
 		if (GetComponent<Rigidbody>())
 			GetComponent<Rigidbody>().freezeRotation = true;
-	}
+
+        Cursor.visible = false;
+    }
 }
