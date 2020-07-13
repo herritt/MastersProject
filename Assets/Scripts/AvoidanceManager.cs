@@ -49,7 +49,7 @@ public class AvoidanceManager : MonoBehaviour
 
         GameObject obj = (GameObject)sortedList.GetByIndex(0);
 
-        obj.SetActive(!obj.activeInHierarchy);
+        obj.GetComponentInChildren<Canvas>().enabled = !obj.GetComponentInChildren<Canvas>().isActiveAndEnabled;
 
     }
 
