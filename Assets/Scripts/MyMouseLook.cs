@@ -31,17 +31,13 @@ public class MyMouseLook : MonoBehaviour
 
     float rotationY = 0F;
 
-
-    public Texture2D cursorTexture;
-
     public bool toggledOn = true;
 
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            toggledOn = !toggledOn;
-            Cursor.visible = !toggledOn;
+            //toggledOn = !toggledOn;
         }
 
         if (!toggledOn) return;
@@ -70,13 +66,19 @@ public class MyMouseLook : MonoBehaviour
     void Start()
     {
 
-        CursorMode cursorMode = CursorMode.Auto;
-        Vector2 hotSpot = Vector2.zero;
-        Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
+        //CursorMode cursorMode = CursorMode.Auto;
+        
+        //Vector2 hotSpot = Vector2.zero;
+        //Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         // Make the rigid body not change rotation
         if (GetComponent<Rigidbody>())
             GetComponent<Rigidbody>().freezeRotation = true;
+
+
+        
 
     }
 }
