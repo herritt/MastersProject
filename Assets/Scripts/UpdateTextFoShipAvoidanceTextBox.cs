@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using System;
 
@@ -30,28 +31,49 @@ public class UpdateTextFoShipAvoidanceTextBox : MonoBehaviour
         thisShipLastPosition = thisShip.transform.position;
         ownshipLastPostion = ownship.transform.position;
 
-        StartCoroutine(UpdateText());
+        StartCoroutine(UpdateText(0.25f));
     }
 
-    private IEnumerator UpdateText()
+    private IEnumerator UpdateText(float seconds)
     {
         while (true)
         {
-            float cpa = CalculateCPA();
-            float speed = CalculateShipSpeed();
+            UpdateShipAvoidanceText();
 
-            float range = Vector3.Distance(thisShip.transform.position, ownship.transform.position);
-
-            textMeshProUGUI.text = 
-                "Speed: \t" + speed.ToString("F1") + "Kts" + "\n" +
-                "Range: \t" + (range * YARDS_PER_METRE).ToString("F0") + "yds\n" +
-                "CPA: \t\t" + (cpa * YARDS_PER_METRE).ToString("F0") + "yds"; 
-
-            previousPosition = thisShip.transform.position;
-
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(seconds);
         }
 
+    }
+
+    private void UpdateShipAvoidanceText()
+    {
+        float cpa = CalculateCPA();
+        float speed = CalculateShipSpeed();
+
+        float range = Vector3.Distance(thisShip.transform.position, ownship.transform.position);
+
+        textMeshProUGUI.text =
+            "Speed: \t" + speed.ToString("F1") + "Kts" + "\n" +
+            "Range: \t" + (range * YARDS_PER_METRE).ToString("F0") + "yds\n" +
+            "CPA: \t\t" + (cpa * YARDS_PER_METRE).ToString("F0") + "yds";
+
+        previousPosition = thisShip.transform.position;
+
+        //highlight panel if cpa is within 200 yards
+        Image image = gameObject.transform.parent.GetComponentInChildren<Image>();
+
+        if (cpa < 100f)
+        {
+            image.color = Color.red;
+        }
+        else if (cpa < 200f)
+        {
+            image.color = Color.yellow;
+        }
+        else
+        {
+            image.color = Color.white;
+        }
     }
 
     private float CalculateCPA()

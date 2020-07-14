@@ -47,9 +47,13 @@ public class AvoidanceManager : MonoBehaviour
         // raycast doesn't guarantee order, so sort based on how far from ownship
         SortedList sortedList = SortBasedOnDistanceFromOwnship(objectsInSight);
 
-        GameObject obj = (GameObject)sortedList.GetByIndex(0);
+        if (sortedList.Count > 0)
+        {
+            GameObject obj = (GameObject)sortedList.GetByIndex(0);
 
-        obj.GetComponentInChildren<Canvas>().enabled = !obj.GetComponentInChildren<Canvas>().isActiveAndEnabled;
+            obj.GetComponentInChildren<Canvas>().enabled = !obj.GetComponentInChildren<Canvas>().isActiveAndEnabled;
+
+        }
 
     }
 
