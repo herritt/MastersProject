@@ -18,6 +18,10 @@ public class UpdateTextFoShipAvoidanceTextBox : MonoBehaviour
     private Vector3 thisShipLastPosition;
     private Vector3 ownshipLastPostion;
 
+    private float[] speeds = new float[5];
+    private int speedIndex;
+    private int NUM_SPEEDS_TO_AVERAGE = 5;
+
     Vector3 previousPosition = Vector3.zero;
 
     // Start is called before the first frame update
@@ -38,24 +42,24 @@ public class UpdateTextFoShipAvoidanceTextBox : MonoBehaviour
     {
         while (true)
         {
-            UpdateShipAvoidanceText();
+            UpdateShipAvoidanceText(seconds);
 
             yield return new WaitForSeconds(seconds);
         }
 
     }
 
-    private void UpdateShipAvoidanceText()
+    private void UpdateShipAvoidanceText(float seconds)
     {
-        float cpa = CalculateCPA();
-        float speed = CalculateShipSpeed();
+        float cpa = CalculateCPA() * YARDS_PER_METRE;
+        float speed = CalculateShipSpeed(seconds);
 
         float range = Vector3.Distance(thisShip.transform.position, ownship.transform.position);
 
         textMeshProUGUI.text =
-            "Speed: \t" + speed.ToString("F1") + "Kts" + "\n" +
+            "Speed: \t" + AverageSpeed().ToString("F1") + "Kts" + "\n" +
             "Range: \t" + (range * YARDS_PER_METRE).ToString("F0") + "yds\n" +
-            "CPA: \t\t" + (cpa * YARDS_PER_METRE).ToString("F0") + "yds";
+            "CPA: \t\t" + cpa.ToString("F0") + "yds";
 
         previousPosition = thisShip.transform.position;
 
@@ -116,7 +120,25 @@ public class UpdateTextFoShipAvoidanceTextBox : MonoBehaviour
         return cpa;
     }
 
-    private float CalculateShipSpeed()
+    private float AverageSpeed()
+    {
+        int num_non_zeros = 0;
+        float sum = 0.0f;
+
+        for (int i = 0; i < NUM_SPEEDS_TO_AVERAGE; i++)
+        {
+            if (Math.Abs(speeds[i]) < 0.001f)
+            {
+                num_non_zeros++;
+            }
+            sum += speeds[i];
+
+        }
+
+        return sum / (NUM_SPEEDS_TO_AVERAGE - num_non_zeros);
+    }
+
+    private float CalculateShipSpeed(float seconds)
     {
         if (previousPosition == Vector3.zero)
         {
@@ -126,7 +148,7 @@ public class UpdateTextFoShipAvoidanceTextBox : MonoBehaviour
         Vector3 currentPosition = thisShip.transform.position;
         float distance = Vector3.Distance(previousPosition, currentPosition) / METRES_PER_NAUTICAL_MILE;
 
-        float time = 1f / 3600;
+        float time = seconds / 3600;
         float speed = 0;
 
         if (time != 0)
@@ -134,6 +156,9 @@ public class UpdateTextFoShipAvoidanceTextBox : MonoBehaviour
             speed = distance / time;
         }
 
+        speeds[speedIndex] = speed;
+        speedIndex = (speedIndex + 1 ) % NUM_SPEEDS_TO_AVERAGE;
+        
         return speed;
     }
 }

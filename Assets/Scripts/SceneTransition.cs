@@ -42,6 +42,8 @@ public class SceneTransition : MonoBehaviour
         panel.GetComponent<Image>().CrossFadeAlpha(1, fadeOutSpeed, true);
         yield return new WaitForSeconds(fadeOutSpeed);
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         SceneManager.LoadScene(newScene, LoadSceneMode.Single);
     }
 

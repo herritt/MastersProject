@@ -7,6 +7,7 @@ public class AvoidanceManager : MonoBehaviour
     private GameObject ARNA;
     private List<GameObject> objectsInSight = new List<GameObject>();
     public GameObject ownship;
+    public SceneTransition sceneTransition;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +39,11 @@ public class AvoidanceManager : MonoBehaviour
             }
 
             ProcessCanvasObjects(objectsInSight);
- 
+        }
+
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            sceneTransition.TransitionOut("UserStudyMenu");
         }
     }
 

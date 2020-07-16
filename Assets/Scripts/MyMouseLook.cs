@@ -77,8 +77,5 @@ public class MyMouseLook : MonoBehaviour
         if (GetComponent<Rigidbody>())
             GetComponent<Rigidbody>().freezeRotation = true;
 
-
-        
-
     }
 }

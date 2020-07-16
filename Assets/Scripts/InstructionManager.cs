@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -37,6 +38,11 @@ public class InstructionManager : MonoBehaviour
 
     public void LoadSlide(int slideNumber)
     {
+        if (descriptions.ElementAtOrDefault(slideNumber) == null)
+        {
+            return;
+        }
+
         image = images[slideNumber];
         description.text = descriptions[slideNumber];
 
@@ -51,10 +57,12 @@ public class InstructionManager : MonoBehaviour
 
         if (slideNumber == descriptions.Count - 1)
         {
+            nextButton.SetActive(false);
             startButton.SetActive(true);
         }
         else
         {
+            nextButton.SetActive(true);
             startButton.SetActive(false);
         }
 
