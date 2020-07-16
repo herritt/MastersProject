@@ -316,7 +316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &113112320
 Transform:
   m_ObjectHideFlags: 0
@@ -3845,7 +3845,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946802224}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -3090, y: -1.3, z: 3943.3}
+  m_LocalPosition: {x: -3090, y: -1.3, z: 4054}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1329093100}
@@ -4204,10 +4204,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textToDisplay:
   - Look around the scene by moving the mouse
-  - Click on ships to hide or show avoidance ARNA
+  - Click on the USS Santa Fe  to hide the avoidance ARNA. Click again to show it.
   - The colour of the ARNA changes based on the CPA.
-  displayDurations: 030000000500000003000000
-  pausesBetweenInstructions: 02000000050000000200000037000000
+  - Watch as the FV Fraser's ARNA changes colour to white as the CPA increases above
+    200 yards.
+  - Now observe the USS Destroyer as it alters to avoid collison.
+  displayDurations: 0400000005000000040000000700000005000000
+  pausesBetweenInstructions: 030000000500000002000000030000000300000014000000
   instruction: {fileID: 1177831862}
   sceneTransition: {fileID: 1874812111}
 --- !u!1 &1130310923

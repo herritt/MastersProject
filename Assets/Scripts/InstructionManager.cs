@@ -10,7 +10,6 @@ public class InstructionManager : MonoBehaviour
 {
     public List<String> descriptions;
     public List<Image> images;
-    public Image image;
     public TextMeshProUGUI description;
 
     public GameObject previousButton;
@@ -43,7 +42,14 @@ public class InstructionManager : MonoBehaviour
             return;
         }
 
-        image = images[slideNumber];
+        foreach (Image img in images)
+        {
+            img.enabled = false;
+        }
+
+        images[slideNumber].enabled = true;
+        
+
         description.text = descriptions[slideNumber];
 
         if (slideNumber == 0)
