@@ -8,6 +8,7 @@ public class DistanceFromTrack : MonoBehaviour
     public GameObject ownship;
     public List<GameObject> legs;
     private TrackDriver trackDriver;
+    private Vector3 ownshipLastPostion;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class DistanceFromTrack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 shipHeading = trackDriver.waypoint - ownship.transform.position;
+        Vector3 shipHeading = (ownship.transform.position - ownshipLastPostion).normalized;
 
         //to port
         Vector3 portDirectionVector = Quaternion.AngleAxis(-90, Vector3.up) * shipHeading;
@@ -58,10 +59,12 @@ public class DistanceFromTrack : MonoBehaviour
 
         }
 
+        ownshipLastPostion = ownship.transform.position;
 
-    }
 
-    private void ProcessDistancePopUp(Vector3 direction, float distance)
+}
+
+private void ProcessDistancePopUp(Vector3 direction, float distance)
     {
         direction = direction.normalized;
         direction = direction * distance;

@@ -23,8 +23,9 @@ public class OnTrackCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.transform.parent == null) return;
 
-        GameObject otherParent = other.gameObject.transform.parent.gameObject;
+        GameObject otherParent = other.transform.parent.gameObject;
 
         MeshRenderer meshRenderer = otherParent.GetComponent<MeshRenderer>();
 

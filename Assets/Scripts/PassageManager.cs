@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
-public class TrackManager : MonoBehaviour
+public class PassageManager : MonoBehaviour
 {
     private const int WAYPOINT_CHECK_DISTANCE = 10;
 

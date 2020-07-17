@@ -29,8 +29,43 @@ public class DistanceDisplay : MonoBehaviour
 
     private void UpdateDistanceText(float seconds)
     {
-        float range = Vector3.Distance(gameObject.transform.position, ownship.transform.position);
+        float range = Vector3.Distance(gameObject.transform.position, ownship.transform.position) * YARDS_PER_METRE;
 
-        textMeshProUGUI.text = (range * YARDS_PER_METRE).ToString("F0");
-    }
+        textMeshProUGUI.text = range.ToString("F0");
+
+        GameObject parent = gameObject.transform.parent.gameObject;
+        Canvas canvas = parent.GetComponent<Canvas>();
+
+        Transform postTransform = parent.transform.Find("Post");
+        GameObject post = null;
+        if (postTransform != null)
+        {
+            post = parent.transform.Find("Post").gameObject;
+        }
+        
+
+        if (range < 40)
+        {
+            canvas.enabled = false;
+
+            if (post != null)
+            {
+                post.SetActive(false);
+            }
+
+            
+
+        } else if (!canvas.isActiveAndEnabled)
+        { 
+            parent.GetComponent<Canvas>().enabled = true;
+
+            if (post != null)
+            {
+                post.SetActive(true);
+            }
+            
+        }
+
+}
+
 }
