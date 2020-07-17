@@ -10,7 +10,7 @@ public class UpdateTextFoShipAvoidanceTextBox : MonoBehaviour
     private const int METRES_PER_NAUTICAL_MILE = 1852;
     private const float YARDS_PER_METRE = 1.094f;
 
-    TextMeshProUGUI textMeshProUGUI;
+    private TextMeshProUGUI textMeshProUGUI;
     public GameObject ownship;
     public GameObject thisShip;
     private TrackDriver trackDriver;
