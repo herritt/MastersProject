@@ -9733,14 +9733,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textToDisplay:
   - Look around the scene by moving the mouse
+  - Look to your left and you will see a panel displaying the distance off track
   - The tracks change colour based on the ship's relation to the track.
   - When the track is red, the ship is starboard of track.
   - As the ship regains track, the track will change colour to black.
   - As the ship overshoots the track and is now port of track, the track highlights
     green.
-  - .
-  displayDurations: 040000000500000004000000070000000500000005000000
-  pausesBetweenInstructions: 0300000005000000020000000300000003000000050000004b000000
+  - At the end of the track there is a panel showing the distance to wheel over.
+  displayDurations: 04000000050000000400000007000000050000000500000005000000
+  pausesBetweenInstructions: 030000000400000002000000020000000200000004000000040000004b000000
   instruction: {fileID: 1930074961}
   sceneTransition: {fileID: 665627152}
 --- !u!1 &1930074959
@@ -9803,7 +9804,7 @@ MonoBehaviour:
   m_text: Look around using the mouse
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

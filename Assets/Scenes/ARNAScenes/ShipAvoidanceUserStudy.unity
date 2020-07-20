@@ -2919,6 +2919,7 @@ GameObject:
   m_Component:
   - component: {fileID: 946802225}
   - component: {fileID: 946802226}
+  - component: {fileID: 946802227}
   m_Layer: 0
   m_Name: Destroyer
   m_TagString: Untagged
@@ -2963,6 +2964,22 @@ MonoBehaviour:
   - {fileID: 119613183}
   waypoint: {x: 0, y: 0, z: 0}
   shipSpeed: 22
+--- !u!54 &946802227
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946802224}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 4
+  m_CollisionDetection: 0
 --- !u!1001 &956234191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3095,6 +3112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1074389040}
   - component: {fileID: 1074389041}
+  - component: {fileID: 1074389042}
   m_Layer: 0
   m_Name: FV
   m_TagString: Untagged
@@ -3134,6 +3152,22 @@ MonoBehaviour:
   - {fileID: 429793262}
   waypoint: {x: 0, y: 0, z: 0}
   shipSpeed: 0.1
+--- !u!54 &1074389042
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074389039}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 4
+  m_CollisionDetection: 0
 --- !u!1 &1105494280
 GameObject:
   m_ObjectHideFlags: 0
@@ -3211,13 +3245,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textToDisplay:
   - Look around the scene by moving the mouse
-  - Click on the USS Santa Fe  to hide the avoidance ARNA. Click again to show it.
+  - Click on the USS Santa Fe to hide the avoidance ARNA. Click again to show it.
   - The colour of the ARNA changes based on the CPA.
   - Watch as the FV Fraser's ARNA changes colour to white as the CPA increases above
     200 yards.
   - Now observe the USS Destroyer as it alters to avoid collison.
-  displayDurations: 0400000005000000040000000700000005000000
-  pausesBetweenInstructions: 030000000500000002000000030000000300000014000000
+  displayDurations: 0400000007000000040000000700000005000000
+  pausesBetweenInstructions: 030000000500000003000000040000000300000010000000
   instruction: {fileID: 1177831862}
   sceneTransition: {fileID: 1874812111}
 --- !u!1 &1130310923
@@ -3600,7 +3634,7 @@ MonoBehaviour:
   m_text: Look around using the mouse
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4480,7 +4514,7 @@ MonoBehaviour:
   - {fileID: 1788464626}
   - {fileID: 215110601}
   waypoint: {x: 0, y: 0, z: 0}
-  shipSpeed: 11
+  shipSpeed: 12
 --- !u!114 &1345238661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4523,7 +4557,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!95 &1345238664
 Animator:
@@ -6543,6 +6577,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1929523246}
   - component: {fileID: 1929523247}
+  - component: {fileID: 1929523248}
   m_Layer: 0
   m_Name: USS Santa Fe
   m_TagString: Untagged
@@ -6582,6 +6617,22 @@ MonoBehaviour:
   - {fileID: 75118781}
   waypoint: {x: 0, y: 0, z: 0}
   shipSpeed: 15
+--- !u!54 &1929523248
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929523245}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 4
+  m_CollisionDetection: 0
 --- !u!1 &1934592927
 GameObject:
   m_ObjectHideFlags: 0
