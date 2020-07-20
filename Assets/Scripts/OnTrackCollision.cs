@@ -35,19 +35,17 @@ public class OnTrackCollision : MonoBehaviour
         {
             meshRenderer.material = redMaterial;
         }
-        else
+        else if (other.name.Contains("right"))
         {
             meshRenderer.material = greenMaterial;
+        }
+        else
+        {
+            meshRenderer.material = blackmMaterial;
         }
         
     }
 
-
-    private void OnTriggerExit(Collider other)
-    {
-        MeshRenderer meshRenderer = other.gameObject.GetComponentInParent<MeshRenderer>();
-        meshRenderer.material = blackmMaterial;
-    }
 
 
 }

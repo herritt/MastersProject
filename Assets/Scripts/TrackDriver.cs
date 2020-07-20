@@ -12,6 +12,7 @@ public class TrackDriver : MonoBehaviour
     int currentWaypointIndex = 0;
     public float shipSpeed = 11;
     GameObject ship;
+    Rigidbody m_Rigidbody;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class TrackDriver : MonoBehaviour
 
         // convert shipSpeed from kts to units per second
         shipSpeed /= KTS_TO_MPS;
+        m_Rigidbody = GetComponent<Rigidbody>();
 
     }
 
@@ -48,12 +50,14 @@ public class TrackDriver : MonoBehaviour
 
         var t = shipSpeed * Time.deltaTime;
 
-        ship.transform.position = Vector3.MoveTowards(ship.transform.position, waypoint, t);
-
         Vector3 relativePos = waypoint - ship.transform.position;
         ship.transform.rotation = Quaternion.Lerp(ship.transform.rotation, Quaternion.LookRotation(-relativePos), shipSpeed / 30 * Time.deltaTime);
 
-  
+        //calculate a position ahead of the ship based on current heading and move towards it
+        Vector3 newPosition = ship.transform.rotation * Vector3.forward;
+
+        //ship.transform.position = Vector3.MoveTowards(ship.transform.position, newPosition, t);
+        m_Rigidbody.velocity = -transform.forward * shipSpeed;
 
     }
 
