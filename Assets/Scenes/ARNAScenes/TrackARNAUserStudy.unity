@@ -1660,6 +1660,9 @@ MonoBehaviour:
   - {fileID: 355694138}
   waypoint: {x: 0, y: 0, z: 0}
   shipSpeed: 15
+  ship: {fileID: 0}
+  m_Rigidbody: {fileID: 0}
+  relativePos: {x: 0, y: 0, z: 0}
 --- !u!1 &262403891
 GameObject:
   m_ObjectHideFlags: 0
@@ -2185,6 +2188,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 202536844623102457, guid: 0075c1547baa49741933c6dd6d1eb456,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -900
+      objectReference: {fileID: 0}
     - target: {fileID: 202536843379256342, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
       propertyPath: m_LocalScale.y
@@ -2204,11 +2212,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 202536844623102457, guid: 0075c1547baa49741933c6dd6d1eb456,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -900
       objectReference: {fileID: 0}
     - target: {fileID: 1369400149794850727, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
@@ -2371,15 +2374,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 202536843379256342, guid: 0075c1547baa49741933c6dd6d1eb456,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 750
-      objectReference: {fileID: 0}
     - target: {fileID: 202536844623102457, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -750
+      objectReference: {fileID: 0}
+    - target: {fileID: 202536843379256342, guid: 0075c1547baa49741933c6dd6d1eb456,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 1369400149794850727, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
@@ -4159,15 +4162,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 202536843379256342, guid: 0075c1547baa49741933c6dd6d1eb456,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 750
-      objectReference: {fileID: 0}
     - target: {fileID: 202536844623102457, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -750
+      objectReference: {fileID: 0}
+    - target: {fileID: 202536843379256342, guid: 0075c1547baa49741933c6dd6d1eb456,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 1369400149794850727, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
@@ -4569,6 +4572,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1651686440}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &838193225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838193224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 881a24f223847424caa12e97554c5aa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownship: {fileID: 1460510951}
+  helmState: 1
 --- !u!1001 &852172832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6949,6 +6966,9 @@ MonoBehaviour:
   - {fileID: 1281115792}
   waypoint: {x: 0, y: 0, z: 0}
   shipSpeed: 0.1
+  ship: {fileID: 0}
+  m_Rigidbody: {fileID: 0}
+  relativePos: {x: 0, y: 0, z: 0}
 --- !u!1001 &1444919621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7130,6 +7150,9 @@ MonoBehaviour:
   - {fileID: 759906391}
   waypoint: {x: 0, y: 0, z: 0}
   shipSpeed: 22
+  ship: {fileID: 0}
+  m_Rigidbody: {fileID: 0}
+  relativePos: {x: 0, y: 0, z: 0}
 --- !u!65 &1460510955
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8153,25 +8176,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 202536843379256342, guid: 0075c1547baa49741933c6dd6d1eb456,
+    - target: {fileID: 202536843379256341, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
-      propertyPath: m_LocalScale.y
-      value: 750
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 202536844623102457, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -750
       objectReference: {fileID: 0}
+    - target: {fileID: 202536843379256342, guid: 0075c1547baa49741933c6dd6d1eb456,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 750
+      objectReference: {fileID: 0}
     - target: {fileID: 1369400149794850727, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 750
-      objectReference: {fileID: 0}
-    - target: {fileID: 202536843379256341, guid: 0075c1547baa49741933c6dd6d1eb456,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3313552227921413645, guid: 0075c1547baa49741933c6dd6d1eb456, type: 3}
@@ -9955,6 +9978,9 @@ MonoBehaviour:
   - {fileID: 1688403514}
   waypoint: {x: 0, y: 0, z: 0}
   shipSpeed: 22
+  ship: {fileID: 0}
+  m_Rigidbody: {fileID: 0}
+  relativePos: {x: 0, y: 0, z: 0}
 --- !u!1 &1952767947
 GameObject:
   m_ObjectHideFlags: 0

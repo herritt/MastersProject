@@ -11,11 +11,12 @@ public class TrackDriver : MonoBehaviour
     public Vector3 waypoint;
     int currentWaypointIndex = 0;
     public float shipSpeed = 11;
-    GameObject ship;
-    Rigidbody m_Rigidbody;
+    public GameObject ship;
+    public Rigidbody m_Rigidbody;
+    public Vector3 relativePos;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         ship = gameObject;
         waypoint = waypoints[0].transform.position;
@@ -50,7 +51,7 @@ public class TrackDriver : MonoBehaviour
 
         var t = shipSpeed * Time.deltaTime;
 
-        Vector3 relativePos = waypoint - ship.transform.position;
+        relativePos = waypoint - ship.transform.position;
         ship.transform.rotation = Quaternion.Lerp(ship.transform.rotation, Quaternion.LookRotation(-relativePos), shipSpeed / 30 * Time.deltaTime);
 
         //calculate a position ahead of the ship based on current heading and move towards it
