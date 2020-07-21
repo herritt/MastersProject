@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AvoidanceManager : MonoBehaviour
+public class ToggleCanvasManager : MonoBehaviour
 {
     private GameObject ARNA;
     private List<GameObject> objectsInSight = new List<GameObject>();
@@ -19,12 +19,14 @@ public class AvoidanceManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            
+
             RaycastHit[] allHit = Physics.RaycastAll(Camera.main.ScreenPointToRay(Input.mousePosition));
             objectsInSight.Clear();
             foreach (RaycastHit hit in allHit)
             {
-                if (hit.collider.gameObject.name == "ARNA_HighlightOnHover")
+                if (hit.collider.gameObject.name == "ARNA_HighlightOnHover" ||
+                    hit.collider.gameObject.name == "EndPointInfo" ||
+                    hit.collider.gameObject.name == "Distance Pop Up")
                 {
                     GameObject obj = hit.collider.gameObject;
 
@@ -34,7 +36,7 @@ public class AvoidanceManager : MonoBehaviour
                     {
                         objectsInSight.Add(toggleObject);
                     }
-                    
+
                 }
             }
 
@@ -57,6 +59,13 @@ public class AvoidanceManager : MonoBehaviour
             GameObject obj = (GameObject)sortedList.GetByIndex(0);
 
             obj.GetComponentInChildren<Canvas>().enabled = !obj.GetComponentInChildren<Canvas>().isActiveAndEnabled;
+            Transform post = obj.transform.FindChildRecursive("Post");
+
+            if (post != null)
+            {
+                post.gameObject.SetActive(obj.GetComponentInChildren<Canvas>().enabled);
+            }
+
 
         }
 
@@ -66,7 +75,7 @@ public class AvoidanceManager : MonoBehaviour
     {
         SortedList sortedList = new SortedList();
 
-        foreach(GameObject obj in objects)
+        foreach (GameObject obj in objects)
         {
             sortedList.Add(Vector3.Distance(obj.transform.position, ownship.transform.position), obj);
         }
@@ -74,13 +83,5 @@ public class AvoidanceManager : MonoBehaviour
         return sortedList;
     }
 
-    public static void PrintKeysAndValues(SortedList myList)
-    {
-        Debug.Log("\t-KEY-\t-VALUE-");
-        for (int i = 0; i < myList.Count; i++)
-        {
-            Debug.Log(("\t{0}:\t{1}", myList.GetKey(i), myList.GetByIndex(i)));
-        }
-    }
 }
 

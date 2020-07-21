@@ -92,7 +92,6 @@ public class RotateWheel : MonoBehaviour
 
         while (!canStartAnimation)
         {
-            Debug.Log("Animating stbd: " + Time.deltaTime);
             transform.RotateAround(gameObject.transform.position, trackDriver.ship.transform.forward, 20 * Time.deltaTime);
             yield return null;
         }
@@ -111,7 +110,6 @@ public class RotateWheel : MonoBehaviour
 
         while (!canStartAnimation)
         {
-            Debug.Log("Animating port: " + Time.deltaTime);
             transform.RotateAround(gameObject.transform.position, trackDriver.ship.transform.forward, -20 * Time.deltaTime);
             yield return null;
 
