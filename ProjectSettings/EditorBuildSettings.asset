@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ARNAScenes/ShipAvoidanceUserStudy.unity
     guid: b990e72fd16741a40869a5c6e106e3d8
+  - enabled: 1
+    path: Assets/Scenes/ARNAScenes/DangerARNAUserStudy.unity
+    guid: 3e142b8f75d0b4a47986859cd14f1c4c
   m_configObjects: {}

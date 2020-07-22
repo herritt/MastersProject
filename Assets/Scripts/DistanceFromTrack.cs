@@ -6,15 +6,8 @@ public class DistanceFromTrack : MonoBehaviour
 {
     public GameObject ownshipTrackCollider;
     public GameObject ownship;
-    public List<GameObject> legs;
-    private TrackDriver trackDriver;
     private Vector3 ownshipLastPostion;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        trackDriver = ownship.GetComponent<TrackDriver>();
-    }
 
     // Update is called once per frame
     void Update()
@@ -84,7 +77,8 @@ public class DistanceFromTrack : MonoBehaviour
             {
                 ProcessDistancePopUp(stbdDirectionVector, stbdHitDistance);
             }
-        } else if (portTrackFound)
+        }
+        else if (portTrackFound)
         {
             ProcessDistancePopUp(portDirectionVector, portHitDistance);
         }
@@ -93,10 +87,9 @@ public class DistanceFromTrack : MonoBehaviour
             ProcessDistancePopUp(stbdDirectionVector, stbdHitDistance);
         }
 
+    }
 
-}
-
-private void ProcessDistancePopUp(Vector3 direction, float distance)
+    private void ProcessDistancePopUp(Vector3 direction, float distance)
     {
         direction = direction * distance;
         Vector3 position = ownshipTrackCollider.transform.position + direction;
