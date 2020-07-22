@@ -16,7 +16,6 @@ public class PassageManager : MonoBehaviour
     public Vector3 waypoint;
 
     int currentWaypointIndex = 0;
-    int currentDtgIndex = 0;
 
     float[] distances = null;
 

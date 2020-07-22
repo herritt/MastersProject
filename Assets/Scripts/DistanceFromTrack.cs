@@ -20,23 +20,35 @@ public class DistanceFromTrack : MonoBehaviour
     void Update()
     {
         Vector3 shipHeading = (ownship.transform.position - ownshipLastPostion).normalized;
+        ownshipLastPostion = ownship.transform.position;
+        List<float> distances = new List<float>();
 
         //to port
         Vector3 portDirectionVector = Quaternion.AngleAxis(-90, Vector3.up) * shipHeading;
 
         RaycastHit[] portHits = Physics.RaycastAll(ownshipTrackCollider.transform.position, portDirectionVector);
 
-        float portHitDistance = 0.0f;
+        bool portTrackFound = false;
+        bool stbdTrackFound = false;
+        float portHitDistance = -1f, stbdHitDistance = -1f;
+
         for (int i = 0; i < portHits.Length; i++)
         {
             RaycastHit hit = portHits[i];
 
             if (hit.transform.gameObject.name.Equals("track"))
             {
-                portHitDistance = hit.distance;
-                ProcessDistancePopUp(portDirectionVector, hit.distance);
+                Debug.Log(hit.transform);
+                portTrackFound = true;
+                distances.Add(hit.distance);
             }
+        }
 
+        if (portTrackFound)
+        {
+            distances.Sort();
+            portHitDistance = distances[0];
+            distances.Clear();
         }
 
         //to stbd
@@ -50,23 +62,42 @@ public class DistanceFromTrack : MonoBehaviour
 
             if (hit.transform.gameObject.name.Equals("track"))
             {
-                if (hit.distance < portHitDistance)
-                {
-                    ProcessDistancePopUp(stbdDirectionVector, hit.distance);
-                }
-                
+                stbdTrackFound = true;
+                distances.Add(hit.distance);
             }
 
         }
 
-        ownshipLastPostion = ownship.transform.position;
+        if (stbdTrackFound)
+        {
+            distances.Sort();
+            stbdHitDistance = distances[0];
+        }
+
+        if (portTrackFound && stbdTrackFound)
+        {
+            if (portHitDistance < stbdHitDistance)
+            {
+                ProcessDistancePopUp(portDirectionVector, portHitDistance);
+            }
+            else
+            {
+                ProcessDistancePopUp(stbdDirectionVector, stbdHitDistance);
+            }
+        } else if (portTrackFound)
+        {
+            ProcessDistancePopUp(portDirectionVector, portHitDistance);
+        }
+        else if (stbdTrackFound)
+        {
+            ProcessDistancePopUp(stbdDirectionVector, stbdHitDistance);
+        }
 
 
 }
 
 private void ProcessDistancePopUp(Vector3 direction, float distance)
     {
-        direction = direction.normalized;
         direction = direction * distance;
         Vector3 position = ownshipTrackCollider.transform.position + direction;
 

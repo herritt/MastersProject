@@ -9,6 +9,7 @@ public class DistanceDisplay : MonoBehaviour
     public GameObject ownship;
     private const float YARDS_PER_METRE = 1.094f;
     private bool toggledOff = false;
+    public float rangeToToggleOff = 40;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +35,6 @@ public class DistanceDisplay : MonoBehaviour
 
         textMeshProUGUI.text = range.ToString("F0");
 
-
         GameObject parent = gameObject.transform.parent.gameObject;
         Canvas canvas = parent.GetComponent<Canvas>();
 
@@ -45,8 +45,7 @@ public class DistanceDisplay : MonoBehaviour
             post = parent.transform.Find("Post").gameObject;
         }
 
-
-        if (range < 40 && !toggledOff)
+        if (range < rangeToToggleOff && !toggledOff)
         {
             toggledOff = true;
             canvas.enabled = false;
@@ -57,7 +56,7 @@ public class DistanceDisplay : MonoBehaviour
             }
 
         }
-        else if (range > 40 && toggledOff)
+        else if (range > rangeToToggleOff && toggledOff)
         {
             toggledOff = false;
             parent.GetComponent<Canvas>().enabled = true;
@@ -68,7 +67,6 @@ public class DistanceDisplay : MonoBehaviour
             }
 
         }
-
 
     }
 
