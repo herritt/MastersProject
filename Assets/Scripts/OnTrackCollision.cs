@@ -25,14 +25,10 @@ public class OnTrackCollision : MonoBehaviour
     {
         if (other.transform.parent == null) return;
 
-        GameObject otherParent = other.transform.parent.gameObject;
-
-        MeshRenderer meshRenderer = otherParent.GetComponent<MeshRenderer>();
-
-        if (meshRenderer == null) return;
+        MeshRenderer meshRenderer = other.transform.parent.Find("track").GetComponent<MeshRenderer>();
 
         if (other.name.Contains("left"))
-        {
+        {          
             meshRenderer.material = redMaterial;
         }
         else if (other.name.Contains("right"))
