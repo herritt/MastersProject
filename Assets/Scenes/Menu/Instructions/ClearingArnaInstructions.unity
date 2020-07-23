@@ -1496,7 +1496,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1122757702}
           m_MethodName: TransitionOut
           m_Mode: 5
           m_Arguments:
@@ -1504,7 +1504,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: UserStudyMenu
+            m_StringArgument: ClearingAreaARNAUserStudy
             m_BoolArgument: 0
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
@@ -2165,7 +2165,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  image: {fileID: 335337243}
   description: {fileID: 2019878893}
   previousButton: {fileID: 1147348756}
   nextButton: {fileID: 51742581}
