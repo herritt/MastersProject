@@ -6,26 +6,32 @@ using UnityEngine.XR;
 public class PassageManager : MonoBehaviour
 {
     private const int WAYPOINT_CHECK_DISTANCE = 10;
-
     public TrackDriver trackDriver;
-
     public GameObject ship;
-
     public GameObject staticDTG;
-
     public Vector3 waypoint;
-
     int currentWaypointIndex = 0;
-
     float[] distances = null;
-
     float passageDurationInMinutes = 15f;
+    Vector3 lastPostion;
+
+    IEnumerator UpdateDisplay()
+    {
+        while (true)
+        {
+            TextMesh textMesh = staticDTG.GetComponent<TextMesh>();
+            textMesh.text = CreateDisplayText();
+            yield return new WaitForSeconds(1);
+
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         //XRSettings.eyeTextureResolutionScale = 1.5f;
         CalculateDistances();
+        StartCoroutine(UpdateDisplay());
 
     }
 
@@ -46,18 +52,47 @@ public class PassageManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+
+    string CreateDisplayText()
     {
+        string distance = DistanceToGo().ToString("F2") + " NM to go";
+        string timeToGo = "(" + CalculateDeltaTimeFromPlannedETA() + ")";
+        string set = GetTidalSetToString();
+        string courseMadeGood = trackDriver.CMG.ToString();
+        string speedMadeGood = trackDriver.SMG.ToString("F1");
 
-        CheckDistanceToGoBubble();
+        string line_1 = distance + " " + timeToGo;
+        string line_2 = "Set: " + GetTidalSetToString();
+        string line_3 = "Course: " + " 000 " + " (" + courseMadeGood + ")";
+        string line_4 = "Speed: " + SpeedRequired().ToString("F2") + " (" + speedMadeGood + ")" + " kts";
+        return line_1 + "\n" + line_2 + "\n" + line_3 + "\n" + line_4;
 
+        //textMesh.text = "" + DistanceToGo().ToString("F2") + "nm to go\nSpeed required " + SpeedRequired().ToString("F2") + "kts";
     }
 
-    void CheckDistanceToGoBubble()
-    { 
-        TextMesh textMesh = staticDTG.GetComponent<TextMesh>();
-        textMesh.text = "" + DistanceToGo().ToString("F2") + "nm to go\nSpeed required " + SpeedRequired().ToString("F2") + "kts";
+    string CalculateDeltaTimeFromPlannedETA()
+    {
+        float speedMadeGood = trackDriver.SMG;
+        float distanceToGo = DistanceToGo();
+
+        float timeToGo = (distanceToGo / speedMadeGood);
+        float timeToETA = TimeRemainingInHours();
+
+        float deltaInMinutes = (timeToGo - timeToETA) * 60f;
+
+        string sign = deltaInMinutes > 0 ? "+" : "";
+
+        return sign + deltaInMinutes.ToString("F0") + " mins";
+    }
+
+    string GetTidalSetToString()
+    {
+        Vector3 tidalSet = trackDriver.tidalSet;
+
+        int bearing = (int)Vector3.Angle(tidalSet, transform.forward);
+        float speed = tidalSet.magnitude;
+
+        return "" + bearing + "°R @ " + speed.ToString("F1") + " kt";
     }
 
     float DistanceToGo()
@@ -72,7 +107,7 @@ public class PassageManager : MonoBehaviour
             remainingDistanceAfterNextWaypoint += distances[i];
         }
 
-        return (distanceToNextWaypoint + remainingDistanceAfterNextWaypoint)/1852f;
+        return (distanceToNextWaypoint + remainingDistanceAfterNextWaypoint) / 1852f;
     }
 
     float SpeedRequired()
