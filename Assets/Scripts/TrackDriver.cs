@@ -20,7 +20,7 @@ public class TrackDriver : MonoBehaviour
 
     public int tidalSetBearing = 135;
     public float tidalSetSpeed = 50;
-    public Vector3 tidalSet;
+    private Vector3 tidalSet;
 
     private static int COUNT_SIZE = 5;
     private float[] courses = new float[COUNT_SIZE];
@@ -45,6 +45,12 @@ public class TrackDriver : MonoBehaviour
         tidalSet = new Vector3(1, 0, 0);
         tidalSetSpeed /= KTS_TO_MPS;
 
+        float tidalAngleInRadians = Mathf.Deg2Rad * tidalSetBearing;
+
+        float x = Mathf.Sin(tidalAngleInRadians);
+        float y = Mathf.Cos(tidalAngleInRadians);
+
+        tidalSet = new Vector3(x, 0, y);
 
     }
 

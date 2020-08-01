@@ -990,9 +990,8 @@ MonoBehaviour:
   ship: {fileID: 0}
   m_Rigidbody: {fileID: 0}
   relativePos: {x: 0, y: 0, z: 0}
-  tidalSetBearing: 135
+  tidalSetBearing: 180
   tidalSetSpeed: 2
-  tidalSet: {x: -0.35355338, y: 0, z: -0.35355335}
   CMG: 0
   SMG: 0
 --- !u!114 &194020950
