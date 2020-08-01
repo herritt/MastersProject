@@ -21,7 +21,7 @@ public class PassageManager : MonoBehaviour
         {
             TextMesh textMesh = staticDTG.GetComponent<TextMesh>();
             textMesh.text = CreateDisplayText();
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.25f);
 
         }
     }
@@ -55,16 +55,19 @@ public class PassageManager : MonoBehaviour
 
     string CreateDisplayText()
     {
+
         string distance = DistanceToGo().ToString("F2") + " NM to go";
         string timeToGo = "(" + CalculateDeltaTimeFromPlannedETA() + ")";
         string set = GetTidalSetToString();
-        string courseMadeGood = trackDriver.CMG.ToString();
+        string currentCourse = ((int)trackDriver.GetHeading()).ToString("D3");
+        string courseMadeGood = ((int)trackDriver.CMG).ToString("D3");
         string speedMadeGood = trackDriver.SMG.ToString("F1");
 
         string line_1 = distance + " " + timeToGo;
         string line_2 = "Set: " + GetTidalSetToString();
-        string line_3 = "Course: " + " 000 " + " (" + courseMadeGood + ")";
+        string line_3 = "Course: " + currentCourse + " (" + courseMadeGood + ")";
         string line_4 = "Speed: " + SpeedRequired().ToString("F2") + " (" + speedMadeGood + ")" + " kts";
+
         return line_1 + "\n" + line_2 + "\n" + line_3 + "\n" + line_4;
 
         //textMesh.text = "" + DistanceToGo().ToString("F2") + "nm to go\nSpeed required " + SpeedRequired().ToString("F2") + "kts";
@@ -86,13 +89,9 @@ public class PassageManager : MonoBehaviour
     }
 
     string GetTidalSetToString()
-    {
-        Vector3 tidalSet = trackDriver.tidalSet;
-
-        int bearing = (int)Vector3.Angle(tidalSet, transform.forward);
-        float speed = tidalSet.magnitude;
-
-        return "" + bearing + "°R @ " + speed.ToString("F1") + " kt";
+    {        
+        return "" + trackDriver.tidalSetBearing.ToString("D3") + "° @ " +
+            trackDriver.tidalSetSpeed.ToString("F1") + " kt";
     }
 
     float DistanceToGo()

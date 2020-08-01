@@ -31,7 +31,6 @@ public class DistanceFromTrack : MonoBehaviour
 
             if (hit.transform.gameObject.name.Equals("track"))
             {
-                Debug.Log(hit.transform);
                 portTrackFound = true;
                 distances.Add(hit.distance);
             }

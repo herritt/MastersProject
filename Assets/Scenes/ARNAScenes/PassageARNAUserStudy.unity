@@ -120,12 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &5602761 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 202536844623102454, guid: 0075c1547baa49741933c6dd6d1eb456,
-    type: 3}
-  m_PrefabInstance: {fileID: 412691525}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &41849191
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,14 +982,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints:
-  - {fileID: 5602761}
-  - {fileID: 1291437808}
-  - {fileID: 927173278}
+  - {fileID: 593348854}
+  - {fileID: 1731359703}
+  - {fileID: 1163532351}
   waypoint: {x: 0, y: 0, z: 0}
-  shipSpeed: 7
+  shipSpeed: 15
   ship: {fileID: 0}
   m_Rigidbody: {fileID: 0}
   relativePos: {x: 0, y: 0, z: 0}
+  tidalSetBearing: 135
+  tidalSetSpeed: 2
   tidalSet: {x: -0.35355338, y: 0, z: -0.35355335}
   CMG: 0
   SMG: 0
@@ -2957,7 +2953,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 593348854}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 405, y: 0, z: -178}
+  m_LocalPosition: {x: -2937, y: 0, z: 4358}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 518413966}
@@ -4648,12 +4644,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 919929120}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &927173278 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 202536844623102454, guid: 0075c1547baa49741933c6dd6d1eb456,
-    type: 3}
-  m_PrefabInstance: {fileID: 184524522}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &959737495
 GameObject:
   m_ObjectHideFlags: 0
@@ -5486,7 +5476,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163532351}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 130, y: 0, z: -479}
+  m_LocalPosition: {x: -3351, y: 0, z: 4569}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 518413966}
@@ -6098,12 +6088,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &1291437808 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8027119290493167747, guid: 0075c1547baa49741933c6dd6d1eb456,
-    type: 3}
-  m_PrefabInstance: {fileID: 184524522}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1295538607
 GameObject:
   m_ObjectHideFlags: 0
@@ -7506,7 +7490,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731359703}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 681, y: 0, z: -192}
+  m_LocalPosition: {x: -3240, y: 0, z: 4568}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 518413966}
@@ -8358,7 +8342,7 @@ MonoBehaviour:
   - Watch how the panels move as the ship alters.
   - Click a panel to toggle it on and off.
   displayDurations: 04000000040000000400000004000000040000000600000006000000
-  pausesBetweenInstructions: 0200000002000000020000000200000002000000020000000200000006000000
+  pausesBetweenInstructions: 3c00000002000000020000000200000002000000020000000200000006000000
   instruction: {fileID: 656419615}
   sceneTransition: {fileID: 216291864}
 --- !u!1001 &2081369788

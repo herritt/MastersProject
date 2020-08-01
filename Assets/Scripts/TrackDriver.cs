@@ -17,17 +17,18 @@ public class TrackDriver : MonoBehaviour
     public GameObject ship;
     public Rigidbody m_Rigidbody;
     public Vector3 relativePos;
-    public Vector3 tidalSet = Quaternion.AngleAxis(-135, Vector3.up) * Vector3.forward * 0.5f;
+
+    public int tidalSetBearing = 135;
+    public float tidalSetSpeed = 50;
+    public Vector3 tidalSet;
 
     private static int COUNT_SIZE = 5;
     private float[] courses = new float[COUNT_SIZE];
-    public float CMG = 0f;
-
+    public float CMG = 0;
     public float SMG = 0f;
 
     private float[] speeds = new float[COUNT_SIZE];
     private int speedIndex;
-    
 
     Vector3 previousPosition = Vector3.zero;
 
@@ -41,13 +42,15 @@ public class TrackDriver : MonoBehaviour
         // convert shipSpeed from kts to units per second
         shipSpeed /= KTS_TO_MPS;
         m_Rigidbody = GetComponent<Rigidbody>();
+        tidalSet = new Vector3(1, 0, 0);
+        tidalSetSpeed /= KTS_TO_MPS;
 
 
     }
 
     private void Start()
     {
-        StartCoroutine(UpdateKinematics(0.25f));
+        StartCoroutine(UpdateKinematics(0.5f));
 
     }
 
@@ -58,6 +61,7 @@ public class TrackDriver : MonoBehaviour
 
             CalculateShipSpeed(seconds);
             SMG = AverageSpeed();
+            CMG = UpdateCMG();
             previousPosition = ship.transform.position;
 
             yield return new WaitForSeconds(seconds);
@@ -68,8 +72,7 @@ public class TrackDriver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateKinematics(Time.deltaTime);
-        
+        //UpdateKinematics(Time.deltaTime);
 
         if (currentWaypointIndex == waypoints.Length) return;
 
@@ -89,20 +92,38 @@ public class TrackDriver : MonoBehaviour
 
         }
 
-        var t = shipSpeed * Time.deltaTime;
 
         relativePos = waypoint - ship.transform.position;
-        ship.transform.rotation = Quaternion.Lerp(ship.transform.rotation, Quaternion.LookRotation(-relativePos), shipSpeed / 30 * Time.deltaTime);
+        ship.transform.rotation = Quaternion.Lerp(ship.transform.rotation,
+            Quaternion.LookRotation(-relativePos), shipSpeed / 30 * Time.deltaTime);
 
-        //calculate a position ahead of the ship based on current heading and move towards it
-        Vector3 newPosition = ship.transform.rotation * Vector3.forward;
+        //calculate a position ahead of the ship based on current heading and tidal set and move towards it
+        m_Rigidbody.velocity = tidalSet * tidalSetSpeed - (transform.forward * shipSpeed);
 
-        //ship.transform.position = Vector3.MoveTowards(ship.transform.position, newPosition, t);
-        m_Rigidbody.velocity = -transform.forward * shipSpeed;
+    }
 
-        
+    public float GetHeading()
+    {
+        float heading = ship.transform.eulerAngles.y - 180;
+        if (heading < 0) heading += 360;
 
+        return heading;
+    }
 
+    private float UpdateCMG()
+    {
+
+        if (previousPosition == Vector3.zero)
+        {
+            return 0f;
+        }
+
+        Vector3 targetDir = transform.position - previousPosition;
+        float angle = Vector3.SignedAngle(new Vector3(1, 0, 0), targetDir, Vector3.up) + 90;
+
+        if (angle < 0) angle += 360;
+
+        return angle;
     }
 
     public float AverageSpeed()
