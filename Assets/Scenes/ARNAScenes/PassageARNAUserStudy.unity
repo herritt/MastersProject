@@ -960,7 +960,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194020947}
   m_LocalRotation: {x: -0, y: -0.13047482, z: -0, w: 0.9914516}
-  m_LocalPosition: {x: -3159, y: 19.8, z: 4210}
+  m_LocalPosition: {x: -3138, y: 19.8, z: 4216}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 1844488645}
@@ -983,15 +983,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints:
   - {fileID: 593348854}
-  - {fileID: 1731359703}
-  - {fileID: 1163532351}
+  - {fileID: 1291437808}
+  - {fileID: 927173278}
   waypoint: {x: 0, y: 0, z: 0}
   shipSpeed: 15
   ship: {fileID: 0}
   m_Rigidbody: {fileID: 0}
   relativePos: {x: 0, y: 0, z: 0}
-  tidalSetBearing: 180
-  tidalSetSpeed: 2
+  tidalSetBearing: 135
+  tidalSetSpeed: 1
   CMG: 0
   SMG: 0
 --- !u!114 &194020950
@@ -2180,27 +2180,32 @@ PrefabInstance:
     - target: {fileID: 8381092470791302617, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8381092470791302617, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8381092470791302617, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8381092470791302617, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8381092470791302617, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381092470791302617, guid: 0075c1547baa49741933c6dd6d1eb456,
+        type: 3}
+      propertyPath: m_text
+      value: W/O 185
       objectReference: {fileID: 0}
     - target: {fileID: 8381092469874201676, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
@@ -2952,7 +2957,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 593348854}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2937, y: 0, z: 4358}
+  m_LocalPosition: {x: -3130, y: 0, z: 3946}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 518413966}
@@ -4643,6 +4648,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 919929120}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &927173278 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 202536844623102454, guid: 0075c1547baa49741933c6dd6d1eb456,
+    type: 3}
+  m_PrefabInstance: {fileID: 184524522}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &959737495
 GameObject:
   m_ObjectHideFlags: 0
@@ -5475,7 +5486,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163532351}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3351, y: 0, z: 4569}
+  m_LocalPosition: {x: -2932, y: 0, z: 2887}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 518413966}
@@ -6087,6 +6098,12 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1291437808 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8027119290493167747, guid: 0075c1547baa49741933c6dd6d1eb456,
+    type: 3}
+  m_PrefabInstance: {fileID: 184524522}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1295538607
 GameObject:
   m_ObjectHideFlags: 0
@@ -7489,7 +7506,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731359703}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3240, y: 0, z: 4568}
+  m_LocalPosition: {x: -3029, y: 0, z: 3377}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 518413966}
@@ -8334,14 +8351,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textToDisplay:
   - Look around the scene by moving the mouse
-  - The areas where the ship can run aground are shown in red
-  - Look ahead and to your left to see red panels in line with the danger area
-  - There are also panels in the distance to starboard and astern.
-  - The number shown is the distance in yards to the danger.
-  - Watch how the panels move as the ship alters.
+  - Look above the front window at the green text
+  - The top line provides the distance to go (DTG) to the end of the passage
+  - It also tells you that you'll arrive 3 minute early
+  - We are being set to port. Take a look at your Course Made Good (CMG)
+  - It is to port of our heading (HDG)
+  - That helped us to regain track
+  - The speed made good (SMG) is higher than the speed required (SR)
+  - Let's slow down to make good the speed required.
   - Click a panel to toggle it on and off.
-  displayDurations: 04000000040000000400000004000000040000000600000006000000
-  pausesBetweenInstructions: 3c00000002000000020000000200000002000000020000000200000006000000
+  displayDurations: 04000000040000000400000004000000040000000600000006000000060000000600000006000000
+  pausesBetweenInstructions: 0200000002000000020000000200000002000000020000000200000006000000060000000600000006000000
   instruction: {fileID: 656419615}
   sceneTransition: {fileID: 216291864}
 --- !u!1001 &2081369788

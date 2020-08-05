@@ -12,7 +12,7 @@ public class PassageManager : MonoBehaviour
     public Vector3 waypoint;
     int currentWaypointIndex = 0;
     float[] distances = null;
-    float passageDurationInMinutes = 15f;
+    float passageDurationInMinutes = 10;
     Vector3 lastPostion;
 
     IEnumerator UpdateDisplay()
@@ -59,14 +59,14 @@ public class PassageManager : MonoBehaviour
         string distance = DistanceToGo().ToString("F2") + " NM to go";
         string timeToGo = "(" + CalculateDeltaTimeFromPlannedETA() + ")";
         string set = GetTidalSetToString();
-        string currentCourse = ((int)trackDriver.GetHeading()).ToString("D3");
+        string heading = ((int)trackDriver.GetHeading()).ToString("D3");
         string courseMadeGood = ((int)trackDriver.CMG).ToString("D3");
         string speedMadeGood = trackDriver.SMG.ToString("F1");
 
         string line_1 = distance + " " + timeToGo;
         string line_2 = "Set: " + GetTidalSetToString();
-        string line_3 = "Course: " + currentCourse + " (" + courseMadeGood + ")";
-        string line_4 = "Speed: " + SpeedRequired().ToString("F2") + " (" + speedMadeGood + ")" + " kts";
+        string line_3 = "HDG: " + heading + " (CMG: " + courseMadeGood + ")";
+        string line_4 = "SR: " + SpeedRequired().ToString("F1") + " (SMG: " + speedMadeGood + ")" + " kts";
 
         return line_1 + "\n" + line_2 + "\n" + line_3 + "\n" + line_4;
 
@@ -89,9 +89,11 @@ public class PassageManager : MonoBehaviour
     }
 
     string GetTidalSetToString()
-    {        
+    {
+        float tidalSetSpeedInKts = trackDriver.tidalSetSpeed * TrackDriver.KTS_TO_MPS;
+
         return "" + trackDriver.tidalSetBearing.ToString("D3") + "° @ " +
-            trackDriver.tidalSetSpeed.ToString("F1") + " kt";
+            tidalSetSpeedInKts.ToString("F1") + " kt";
     }
 
     float DistanceToGo()
@@ -109,7 +111,7 @@ public class PassageManager : MonoBehaviour
         return (distanceToNextWaypoint + remainingDistanceAfterNextWaypoint) / 1852f;
     }
 
-    float SpeedRequired()
+    public float SpeedRequired()
     {
         float distance = DistanceToGo();
         float time = TimeRemainingInHours();
@@ -120,7 +122,7 @@ public class PassageManager : MonoBehaviour
     float TimeRemainingInHours()
     {
 
-        float timeInSecondsSinceStart = Time.time;
+        float timeInSecondsSinceStart = Time.timeSinceLevelLoad;
         float remainingTimeInSeconds = (passageDurationInMinutes * 60f) - timeInSecondsSinceStart;
 
         return remainingTimeInSeconds / 3600;

@@ -34,7 +34,12 @@ public class ToggleCanvasManager : MonoBehaviour
 
                     if (toggleObject != null)
                     {
-                        objectsInSight.Add(toggleObject);
+                        if (hit.distance > 40f / 1.094)
+                        {
+                            objectsInSight.Add(toggleObject);
+
+                        }
+
                     }
 
                 }

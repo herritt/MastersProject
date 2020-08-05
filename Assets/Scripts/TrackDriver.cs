@@ -6,7 +6,7 @@ using UnityEngine;
 public class TrackDriver : MonoBehaviour
 {
     private const int WAYPOINT_CHECK_DISTANCE = 20;
-    private const float KTS_TO_MPS = 1.944f;
+    public const float KTS_TO_MPS = 1.944f;
     private const int METRES_PER_NAUTICAL_MILE = 1852;
     private const float YARDS_PER_METRE = 1.094f;
 
@@ -19,7 +19,7 @@ public class TrackDriver : MonoBehaviour
     public Vector3 relativePos;
 
     public int tidalSetBearing = 135;
-    public float tidalSetSpeed = 50;
+    public float tidalSetSpeed = 2;
     private Vector3 tidalSet;
 
     private static int COUNT_SIZE = 5;
