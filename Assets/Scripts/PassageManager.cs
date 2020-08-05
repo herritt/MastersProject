@@ -5,12 +5,10 @@ using UnityEngine.XR;
 
 public class PassageManager : MonoBehaviour
 {
-    private const int WAYPOINT_CHECK_DISTANCE = 10;
     public TrackDriver trackDriver;
     public GameObject ship;
     public GameObject staticDTG;
     public Vector3 waypoint;
-    int currentWaypointIndex = 0;
     float[] distances = null;
     float passageDurationInMinutes = 10;
     Vector3 lastPostion;
@@ -35,11 +33,18 @@ public class PassageManager : MonoBehaviour
 
     }
 
+    void Update()
+    {
+        
+    }
+
     void CalculateDistances()
     {
         GameObject[] waypoints = trackDriver.waypoints;
 
-        distances = new float[waypoints.Length - 1];
+        distances = new float[waypoints.Length];
+
+        //distances[0] = Vector3.Distance(ship.transform.position, waypoints[0].transform.position);
 
         for (int i = 0; i < waypoints.Length - 1; i++)
         {
@@ -83,9 +88,15 @@ public class PassageManager : MonoBehaviour
 
         float deltaInMinutes = (timeToGo - timeToETA) * 60f;
 
-        string sign = deltaInMinutes > 0 ? "+" : "";
+        float seconds = (deltaInMinutes - (int)deltaInMinutes) * 60f;
+        seconds = Mathf.Abs(seconds);       
 
-        return sign + deltaInMinutes.ToString("F0") + " mins";
+        string sign = deltaInMinutes > 0 ? "+" : "-";
+
+        deltaInMinutes = Mathf.Abs(deltaInMinutes);
+        deltaInMinutes = Mathf.Floor(deltaInMinutes);
+
+        return sign + deltaInMinutes.ToString("F0") + " mins " + seconds.ToString("F0") + " secs";
     }
 
     string GetTidalSetToString()
@@ -99,11 +110,12 @@ public class PassageManager : MonoBehaviour
     float DistanceToGo()
     {
         GameObject[] waypoints = trackDriver.waypoints;
-        float distanceToNextWaypoint = Vector3.Distance(waypoints[currentWaypointIndex].transform.position, ship.transform.position);
+        int index = trackDriver.currentWaypointIndex;
+        float distanceToNextWaypoint = Vector3.Distance(waypoints[index].transform.position, ship.transform.position);
 
         float remainingDistanceAfterNextWaypoint = 0f;
 
-        for (int i = currentWaypointIndex; i < distances.Length; i++)
+        for (int i = index; i < distances.Length; i++)
         {
             remainingDistanceAfterNextWaypoint += distances[i];
         }

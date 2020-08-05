@@ -12,10 +12,10 @@ public class TrackDriver : MonoBehaviour
 
     public GameObject[] waypoints;
     public Vector3 waypoint;
-    int currentWaypointIndex = 0;
+    public int currentWaypointIndex = 0;
     public float shipSpeed = 11;
     public GameObject ship;
-    public Rigidbody m_Rigidbody;
+    private Rigidbody m_Rigidbody;
     public Vector3 relativePos;
 
     public int tidalSetBearing = 135;
@@ -24,8 +24,8 @@ public class TrackDriver : MonoBehaviour
 
     private static int COUNT_SIZE = 5;
     private float[] courses = new float[COUNT_SIZE];
-    public float CMG = 0;
-    public float SMG = 0f;
+    public float CMG;
+    public float SMG;
 
     private float[] speeds = new float[COUNT_SIZE];
     private int speedIndex;

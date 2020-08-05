@@ -13,6 +13,8 @@ public class PassageManagerUserStudyManager : MonoBehaviour
     private DisplayUserStudyInstructions instructionDisplay;
     private PassageManager passageManager;
 
+    private bool slowedDownMore = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,11 +27,17 @@ public class PassageManagerUserStudyManager : MonoBehaviour
     void Update()
     {
         //for now we just want to slow down at a certain point in the user study
-        if (instructionDisplay.instruction.text.Contains("slow down"))
+        if (instructionDisplay.instruction.text.Contains("slow down by"))
         {
             float newSpeed = passageManager.SpeedRequired() / TrackDriver.KTS_TO_MPS;
             trackDriver.shipSpeed = newSpeed;
         }
 
+        if (instructionDisplay.instruction.text.Contains("slow down more") && !slowedDownMore)
+        {
+            slowedDownMore = true;
+            float newSpeed = (passageManager.SpeedRequired() - 1.9f) / TrackDriver.KTS_TO_MPS;
+            trackDriver.shipSpeed = newSpeed;
+        }
     }
 }

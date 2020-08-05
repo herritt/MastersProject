@@ -563,8 +563,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1055958935}
-  m_RootOrder: 0
+  m_Father: {fileID: 1295538608}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &117824513
 MonoBehaviour:
@@ -986,12 +986,12 @@ MonoBehaviour:
   - {fileID: 1291437808}
   - {fileID: 927173278}
   waypoint: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
   shipSpeed: 15
-  ship: {fileID: 0}
-  m_Rigidbody: {fileID: 0}
+  ship: {fileID: 2081369790}
   relativePos: {x: 0, y: 0, z: 0}
   tidalSetBearing: 135
-  tidalSetSpeed: 1
+  tidalSetSpeed: 2
   CMG: 0
   SMG: 0
 --- !u!114 &194020950
@@ -2915,7 +2915,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1055958935}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &581768331
 MonoBehaviour:
@@ -5035,9 +5035,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 117824512}
   - {fileID: 2012566192}
   - {fileID: 581768330}
+  - {fileID: 1642305117}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6133,6 +6133,7 @@ Transform:
   m_Children:
   - {fileID: 1310607684}
   - {fileID: 919929121}
+  - {fileID: 117824512}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7351,6 +7352,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1642305116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1642305117}
+  - component: {fileID: 1642305118}
+  m_Layer: 0
+  m_Name: PassageManagerUserStudyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1642305117
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642305116}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1055958935}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1642305118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642305116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3efc03f20b78f124f9aaf38406745309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownship: {fileID: 194020947}
+  instructionDisplayObject: {fileID: 2012566191}
+  passageManagerObject: {fileID: 117824511}
 --- !u!1 &1675964548
 GameObject:
   m_ObjectHideFlags: 0
@@ -8335,7 +8382,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1055958935}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2012566193
 MonoBehaviour:
@@ -8353,15 +8400,16 @@ MonoBehaviour:
   - Look around the scene by moving the mouse
   - Look above the front window at the green text
   - The top line provides the distance to go (DTG) to the end of the passage
-  - It also tells you that you'll arrive 3 minute early
+  - It also tells you that you'll arrive 3 and a half minutes early
   - We are being set to port. Take a look at your Course Made Good (CMG)
   - It is to port of our heading (HDG)
-  - That helped us to regain track
   - The speed made good (SMG) is higher than the speed required (SR)
-  - Let's slow down to make good the speed required.
-  - Click a panel to toggle it on and off.
-  displayDurations: 04000000040000000400000004000000040000000600000006000000060000000600000006000000
-  pausesBetweenInstructions: 0200000002000000020000000200000002000000020000000200000006000000060000000600000006000000
+  - Let's slow down by ordering the speed required
+  - The SMG is still above the speed required due to the tidal set.
+  - 'Let''s slow down more in order to make good the speed required. '
+  - We now see that we're arriving on time.
+  displayDurations: 0300000005000000050000000500000005000000060000000600000006000000060000000600000006000000
+  pausesBetweenInstructions: 020000000300000003000000030000000300000003000000060000000600000006000000060000000600000006000000
   instruction: {fileID: 656419615}
   sceneTransition: {fileID: 216291864}
 --- !u!1001 &2081369788
