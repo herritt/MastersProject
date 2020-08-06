@@ -1011,11 +1011,12 @@ MonoBehaviour:
   - {fileID: 114063210}
   - {fileID: 282900625}
   waypoint: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
   shipSpeed: 15
   ship: {fileID: 0}
-  m_Rigidbody: {fileID: 0}
   relativePos: {x: 0, y: 0, z: 0}
-  tidalSet: {x: -0.35355338, y: 0, z: -0.35355335}
+  tidalSetBearing: 135
+  tidalSetSpeed: 0
   CMG: 0
   SMG: 0
 --- !u!114 &219703083

@@ -1722,14 +1722,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 596526061}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 67.8, z: 0}
+  m_LocalRotation: {x: 0, y: -0.91401744, z: -0, w: 0.40567476}
+  m_LocalPosition: {x: 0, y: 67.8, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1943484722}
   m_Father: {fileID: 1929523246}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -132.13301, z: 0}
 --- !u!65 &596526063
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2963,11 +2963,12 @@ MonoBehaviour:
   - {fileID: 1066440965}
   - {fileID: 119613183}
   waypoint: {x: 0, y: 0, z: 0}
-  shipSpeed: 11
+  currentWaypointIndex: 0
+  shipSpeed: 20
   ship: {fileID: 0}
-  m_Rigidbody: {fileID: 0}
   relativePos: {x: 0, y: 0, z: 0}
-  tidalSet: {x: -0.35355338, y: 0, z: -0.35355335}
+  tidalSetBearing: 135
+  tidalSetSpeed: 0
   CMG: 0
   SMG: 0
 --- !u!54 &946802227
@@ -3134,7 +3135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1074389039}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -3441, y: 0, z: 5042.1}
+  m_LocalPosition: {x: -3421.8, y: 0, z: 4921.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1361389449}
@@ -3157,11 +3158,12 @@ MonoBehaviour:
   waypoints:
   - {fileID: 429793262}
   waypoint: {x: 0, y: 0, z: 0}
+  currentWaypointIndex: 0
   shipSpeed: 0.1
   ship: {fileID: 0}
-  m_Rigidbody: {fileID: 0}
   relativePos: {x: 0, y: 0, z: 0}
-  tidalSet: {x: -0.35355338, y: 0, z: -0.35355335}
+  tidalSetBearing: 135
+  tidalSetSpeed: 0
   CMG: 0
   SMG: 0
 --- !u!54 &1074389042
@@ -3257,13 +3259,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textToDisplay:
   - Look around the scene by moving the mouse
-  - Click on the USS Santa Fe to hide the avoidance ARNA. Click again to show it.
-  - The colour of the ARNA changes based on the CPA.
+  - Click on the USS Santa Fe to hide the Avoidance ARNA. Click again to show it.
+  - The colour of the Avoidance ARNA panel changes based on Closest Point of Approach
+    (CPA).
   - Watch as the FV Fraser's ARNA changes colour to white as the CPA increases above
     200 yards.
   - Now observe the USS Destroyer as it alters to avoid collison.
-  displayDurations: 0400000007000000040000000700000005000000
-  pausesBetweenInstructions: 030000000500000003000000040000000300000010000000
+  displayDurations: 0400000007000000070000000700000005000000
+  pausesBetweenInstructions: 030000000500000003000000040000000500000010000000
   instruction: {fileID: 1177831862}
   sceneTransition: {fileID: 1874812111}
 --- !u!1 &1130310923
@@ -3467,14 +3470,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1138937651}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.9571617, z: -0, w: 0.28955397}
   m_LocalPosition: {x: 0, y: 41.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 262821468}
   m_Father: {fileID: 1074389040}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -146.337, z: 0}
 --- !u!65 &1138937653
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4420,14 +4423,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329093099}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0}
+  m_LocalRotation: {x: -0, y: 0.987969, z: -0, w: 0.15465254}
   m_LocalPosition: {x: 0, y: 81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1050127389}
   m_Father: {fileID: 946802225}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 162.207, z: 0}
 --- !u!65 &1329093101
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4530,11 +4533,12 @@ MonoBehaviour:
   - {fileID: 1788464626}
   - {fileID: 215110601}
   waypoint: {x: 0, y: 0, z: 0}
-  shipSpeed: 15
+  currentWaypointIndex: 0
+  shipSpeed: 14
   ship: {fileID: 0}
-  m_Rigidbody: {fileID: 0}
   relativePos: {x: 0, y: 0, z: 0}
-  tidalSet: {x: -0.35355338, y: 0, z: -0.35355335}
+  tidalSetBearing: 135
+  tidalSetSpeed: 0
   CMG: 0
   SMG: 0
 --- !u!114 &1345238661
@@ -6638,11 +6642,12 @@ MonoBehaviour:
   waypoints:
   - {fileID: 75118781}
   waypoint: {x: 0, y: 0, z: 0}
-  shipSpeed: 15
+  currentWaypointIndex: 0
+  shipSpeed: 10
   ship: {fileID: 0}
-  m_Rigidbody: {fileID: 0}
   relativePos: {x: 0, y: 0, z: 0}
-  tidalSet: {x: -0.35355338, y: 0, z: -0.35355335}
+  tidalSetBearing: 135
+  tidalSetSpeed: 0
   CMG: 0
   SMG: 0
 --- !u!54 &1929523248
