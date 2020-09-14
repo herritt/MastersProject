@@ -111,15 +111,27 @@ public class TrackDriver : MonoBehaviour
             ship.transform.rotation = Quaternion.Lerp(ship.transform.rotation,
                 Quaternion.LookRotation(-relativePos), shipSpeed / 30 * Time.deltaTime);
 
-            //calculate a position ahead of the ship based on current heading and tidal set and move towards it
-            m_Rigidbody.velocity = tidalSet * tidalSetSpeed - (transform.forward * shipSpeed);
+        }
+        else
+        {
+            float rotateSpeed = 10.0f;
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                ship.transform.rotation *= Quaternion.Euler(0, 1f * rotateSpeed * Time.deltaTime, 0);
+            }
+            else if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                ship.transform.rotation *= Quaternion.Euler(0, -1f * rotateSpeed * Time.deltaTime, 0);
+            }
 
-            return;
+
         }
 
 
 
-        
+        //calculate a position ahead of the ship based on current heading and tidal set and move towards it
+        m_Rigidbody.velocity = tidalSet * tidalSetSpeed - (transform.forward * shipSpeed);
+
 
     }
 
