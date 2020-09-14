@@ -3,6 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum DRIVE_MODE {
+    AUTO,
+    MANUAL
+}
+
 public class TrackDriver : MonoBehaviour
 {
     private const int WAYPOINT_CHECK_DISTANCE = 20;
@@ -29,6 +34,8 @@ public class TrackDriver : MonoBehaviour
 
     private float[] speeds = new float[COUNT_SIZE];
     private int speedIndex;
+
+    public DRIVE_MODE drive_mode;
 
     Vector3 previousPosition = Vector3.zero;
 
@@ -98,13 +105,21 @@ public class TrackDriver : MonoBehaviour
 
         }
 
+        if (drive_mode == DRIVE_MODE.AUTO)
+        {
+            relativePos = waypoint - ship.transform.position;
+            ship.transform.rotation = Quaternion.Lerp(ship.transform.rotation,
+                Quaternion.LookRotation(-relativePos), shipSpeed / 30 * Time.deltaTime);
 
-        relativePos = waypoint - ship.transform.position;
-        ship.transform.rotation = Quaternion.Lerp(ship.transform.rotation,
-            Quaternion.LookRotation(-relativePos), shipSpeed / 30 * Time.deltaTime);
+            //calculate a position ahead of the ship based on current heading and tidal set and move towards it
+            m_Rigidbody.velocity = tidalSet * tidalSetSpeed - (transform.forward * shipSpeed);
 
-        //calculate a position ahead of the ship based on current heading and tidal set and move towards it
-        m_Rigidbody.velocity = tidalSet * tidalSetSpeed - (transform.forward * shipSpeed);
+            return;
+        }
+
+
+
+        
 
     }
 

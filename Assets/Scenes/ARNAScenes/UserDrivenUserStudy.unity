@@ -398,7 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f4eb8cf705cf8478090912ccfacf86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  other: {fileID: 0}
+  other: {fileID: 1484969860}
 --- !u!65 &57175965
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1373,7 +1373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f4eb8cf705cf8478090912ccfacf86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  other: {fileID: 0}
+  other: {fileID: 1484969860}
 --- !u!65 &197420321
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1564,6 +1564,7 @@ MonoBehaviour:
   tidalSetSpeed: 0
   CMG: 0
   SMG: 0
+  drive_mode: 1
 --- !u!114 &229972644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6752,7 +6753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af4e4d406638284abef07a507a4d7fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ownship: {fileID: 0}
+  ownship: {fileID: 1336128874}
   thisShip: {fileID: 1370905536}
 --- !u!114 &1280758117
 MonoBehaviour:
@@ -7483,6 +7484,7 @@ MonoBehaviour:
   tidalSetSpeed: 0
   CMG: 0
   SMG: 0
+  drive_mode: 0
 --- !u!1 &1398295090
 GameObject:
   m_ObjectHideFlags: 0
@@ -7902,6 +7904,7 @@ MonoBehaviour:
   tidalSetSpeed: 0
   CMG: 0
   SMG: 0
+  drive_mode: 0
 --- !u!1 &1447140546
 GameObject:
   m_ObjectHideFlags: 0
@@ -8958,6 +8961,7 @@ MonoBehaviour:
   tidalSetSpeed: 0
   CMG: 0
   SMG: 0
+  drive_mode: 0
 --- !u!4 &1645136394 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 425479931512601876, guid: 8ac6877d5d089c44cb91d10e19d11d9f,
@@ -9374,7 +9378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af4e4d406638284abef07a507a4d7fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ownship: {fileID: 0}
+  ownship: {fileID: 1336128874}
   thisShip: {fileID: 1636846020}
 --- !u!114 &1697572552
 MonoBehaviour:
@@ -10437,7 +10441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f4eb8cf705cf8478090912ccfacf86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  other: {fileID: 0}
+  other: {fileID: 1484969860}
 --- !u!65 &1781017456
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11189,7 +11193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af4e4d406638284abef07a507a4d7fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ownship: {fileID: 0}
+  ownship: {fileID: 1336128874}
   thisShip: {fileID: 1443140165}
 --- !u!114 &1966263387
 MonoBehaviour:
