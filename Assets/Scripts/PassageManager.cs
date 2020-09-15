@@ -8,7 +8,6 @@ public class PassageManager : MonoBehaviour
     public TrackDriver trackDriver;
     public GameObject ship;
     public GameObject staticDTG;
-    public Vector3 waypoint;
     float[] distances = null;
     float passageDurationInMinutes = 10;
     Vector3 lastPostion;

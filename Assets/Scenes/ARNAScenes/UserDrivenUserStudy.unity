@@ -1952,23 +1952,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f964441c75cc4a46a1209ddeb2a4ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToDisplay:
-  - Look around the scene by moving the mouse
-  - Look through the left bridge window and you will see a panel displaying the distance
-    off track
-  - Click the panel to toggle it on and off
-  - The tracks change colour based on the ship's relation to the track.
-  - When the track is red, the ship is starboard of track.
-  - As the ship regains track, the track turns black.
-  - As the ship overshoots the track and is now port of track, the track highlights
-    green.
-  - At the end of the track there is a panel showing the distance to wheel over.
-  - Click to toggle it on and off
-  - It indicates that the next track is 185
-  - When 1 cable (200') to course alteration, the panel disappears to avoid obstructing
-    your view.
-  displayDurations: 0300000005000000050000000700000005000000050000000500000005000000050000000500000005000000
-  pausesBetweenInstructions: 02000000020000000400000004000000020000000400000004000000030000000300000002000000020000000a000000
+  textToDisplay: []
+  displayDurations: 
+  pausesBetweenInstructions: 02000000
   instruction: {fileID: 1936280276}
   sceneTransition: {fileID: 1148807311}
 --- !u!1001 &445130257
@@ -7927,7 +7913,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1447140547
 Transform:
   m_ObjectHideFlags: 0
@@ -7936,8 +7922,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447140546}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.033333335, y: 165.3, z: -333.24667}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: 199, z: -333.24667}
+  m_LocalScale: {x: 1.54558, y: 1.54558, z: 1.54558}
   m_Children: []
   m_Father: {fileID: 1766749370}
   m_RootOrder: 21
@@ -10112,6 +10098,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1757078786}
   m_CullTransparentMesh: 0
+--- !u!1 &1764002239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1764002240}
+  - component: {fileID: 1764002241}
+  m_Layer: 0
+  m_Name: PassageManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1764002240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764002239}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1884920877}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1764002241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764002239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee48bc54d32f46a45b31c95032669956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackDriver: {fileID: 229972643}
+  ship: {fileID: 229972641}
+  staticDTG: {fileID: 1447140546}
 --- !u!4 &1766749370 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: fef4326366d1c7c4c874cf509e190088,
@@ -10754,6 +10786,7 @@ Transform:
   m_Children:
   - {fileID: 1559644442}
   - {fileID: 993886219}
+  - {fileID: 1764002240}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11653,7 +11686,6 @@ MonoBehaviour:
   trackDriver: {fileID: 229972643}
   ship: {fileID: 229972641}
   staticDTG: {fileID: 1447140546}
-  waypoint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2142394710
 PrefabInstance:
   m_ObjectHideFlags: 0

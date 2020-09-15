@@ -39,6 +39,9 @@ public class TrackDriver : MonoBehaviour
 
     Vector3 previousPosition = Vector3.zero;
 
+    private float MAX_SPEED = 30.0f / KTS_TO_MPS;
+    private float MIN_SPEED = -15.0f / KTS_TO_MPS;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -114,7 +117,10 @@ public class TrackDriver : MonoBehaviour
         }
         else
         {
-            float rotateSpeed = 10.0f;
+            //drive mode is manual
+
+            //handle turning
+            float rotateSpeed = 10f;
             if (Input.GetKey(KeyCode.RightArrow))
             {
                 ship.transform.rotation *= Quaternion.Euler(0, 1f * rotateSpeed * Time.deltaTime, 0);
@@ -122,6 +128,26 @@ public class TrackDriver : MonoBehaviour
             else if (Input.GetKey(KeyCode.LeftArrow))
             {
                 ship.transform.rotation *= Quaternion.Euler(0, -1f * rotateSpeed * Time.deltaTime, 0);
+            }
+
+            //handle speed
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                shipSpeed += 1/KTS_TO_MPS;
+
+                if (shipSpeed > MAX_SPEED)
+                {
+                    shipSpeed = MAX_SPEED;
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                shipSpeed -= 1/KTS_TO_MPS;
+
+                if (shipSpeed < MIN_SPEED)
+                {
+                    shipSpeed = MIN_SPEED;
+                }
             }
 
 
