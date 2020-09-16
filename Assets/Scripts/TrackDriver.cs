@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public enum DRIVE_MODE {
@@ -42,6 +43,9 @@ public class TrackDriver : MonoBehaviour
     private float MAX_SPEED = 30.0f / KTS_TO_MPS;
     private float MIN_SPEED = -15.0f / KTS_TO_MPS;
 
+    public TextMeshProUGUI orderedSpeed;
+    private Coroutine showTextRoutine;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -62,6 +66,7 @@ public class TrackDriver : MonoBehaviour
 
         tidalSet = new Vector3(x, 0, y);
 
+        orderedSpeed.alpha = 0f;
     }
 
     private void Start()
@@ -131,8 +136,11 @@ public class TrackDriver : MonoBehaviour
             }
 
             //handle speed
+            bool speedChanged = false;
+
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
+                speedChanged = true;
                 shipSpeed += 1/KTS_TO_MPS;
 
                 if (shipSpeed > MAX_SPEED)
@@ -142,6 +150,7 @@ public class TrackDriver : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
+                speedChanged = true;
                 shipSpeed -= 1/KTS_TO_MPS;
 
                 if (shipSpeed < MIN_SPEED)
@@ -151,12 +160,47 @@ public class TrackDriver : MonoBehaviour
             }
 
 
+
+
+            if (speedChanged)
+            {
+                int displaySpeed = Mathf.RoundToInt(shipSpeed * KTS_TO_MPS);
+
+                orderedSpeed.text = "Ordered Speed: " + displaySpeed + " kts";
+
+                if (showTextRoutine != null)
+                {
+                    StopCoroutine(showTextRoutine);
+                }
+
+
+
+                showTextRoutine = StartCoroutine(ShowForTime(orderedSpeed, 1f));
+
+                speedChanged = false;
+            }
+
+            
         }
-
-
 
         //calculate a position ahead of the ship based on current heading and tidal set and move towards it
         m_Rigidbody.velocity = tidalSet * tidalSetSpeed - (transform.forward * shipSpeed);
+
+
+    }
+
+    private IEnumerator ShowForTime(TextMeshProUGUI text, float time)
+    {
+        text.alpha = 1.0f;
+        yield return new WaitForSeconds(time);
+
+        for (float i = 1; i > 0; i-=0.01f)
+        {
+            if (i < 0.1f) i = 0;
+
+            text.alpha = i;
+            yield return new WaitForSeconds(0.01f);
+        }
 
 
     }
