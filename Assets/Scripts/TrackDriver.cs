@@ -66,7 +66,12 @@ public class TrackDriver : MonoBehaviour
 
         tidalSet = new Vector3(x, 0, y);
 
-        orderedSpeed.alpha = 0f;
+        if (orderedSpeed != null)
+        {
+            orderedSpeed.alpha = 0f;
+        }
+
+        
     }
 
     private void Start()
