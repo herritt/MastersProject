@@ -581,7 +581,6 @@ MonoBehaviour:
   trackDriver: {fileID: 194020949}
   ship: {fileID: 194020947}
   staticDTG: {fileID: 1675964548}
-  waypoint: {x: 0, y: 0, z: 0}
 --- !u!1001 &142271220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -764,10 +763,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Leg 2
       objectReference: {fileID: 0}
+    - target: {fileID: 202536843379256342, guid: 0075c1547baa49741933c6dd6d1eb456,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 800
+      objectReference: {fileID: 0}
     - target: {fileID: 202536843908714250, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2839
+      value: -2819
       objectReference: {fileID: 0}
     - target: {fileID: 202536843908714250, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
@@ -777,7 +781,7 @@ PrefabInstance:
     - target: {fileID: 202536843908714250, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1615
+      value: 1614
       objectReference: {fileID: 0}
     - target: {fileID: 202536843908714250, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
@@ -869,16 +873,6 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8381092469874201676, guid: 0075c1547baa49741933c6dd6d1eb456,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 202536843379256342, guid: 0075c1547baa49741933c6dd6d1eb456,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 800
-      objectReference: {fileID: 0}
     - target: {fileID: 202536844623102457, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -905,6 +899,11 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5443855549821614379, guid: 0075c1547baa49741933c6dd6d1eb456,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381092469874201676, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
       propertyPath: m_Size.y
       value: 2
@@ -994,6 +993,8 @@ MonoBehaviour:
   tidalSetSpeed: 2
   CMG: 0
   SMG: 0
+  drive_mode: 0
+  orderedSpeed: {fileID: 0}
 --- !u!114 &194020950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1166,6 +1167,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneTransition
       objectReference: {fileID: 0}
+    - target: {fileID: 6724281535219461467, guid: 0f890ae2211b5cf4fac21a1d56266d88,
+        type: 3}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 1873526857}
+    - target: {fileID: 6724281535219461467, guid: 0f890ae2211b5cf4fac21a1d56266d88,
+        type: 3}
+      propertyPath: fadeInSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6724281535219461444, guid: 0f890ae2211b5cf4fac21a1d56266d88,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1220,16 +1231,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6724281535219461467, guid: 0f890ae2211b5cf4fac21a1d56266d88,
-        type: 3}
-      propertyPath: panel
-      value: 
-      objectReference: {fileID: 1873526857}
-    - target: {fileID: 6724281535219461467, guid: 0f890ae2211b5cf4fac21a1d56266d88,
-        type: 3}
-      propertyPath: fadeInSpeed
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f890ae2211b5cf4fac21a1d56266d88, type: 3}
