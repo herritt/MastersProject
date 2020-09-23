@@ -107,6 +107,7 @@ public class TrackDriver : MonoBehaviour
             if (currentWaypointIndex < waypoints.Length)
             {
                 currentWaypointIndex++;
+
             }
 
             if (currentWaypointIndex < waypoints.Length)

@@ -1,0 +1,2 @@
+1) Update track ARNA to highlight next track if you don't pass by start waypoint
+
