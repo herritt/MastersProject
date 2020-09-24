@@ -10,6 +10,7 @@ public class DistanceDisplay : MonoBehaviour
     private const float YARDS_PER_METRE = 1.094f;
     private bool toggledOff = false;
     public float rangeToToggleOff = 40;
+    public float range;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,7 @@ public class DistanceDisplay : MonoBehaviour
 
     private void UpdateDistanceText(float seconds)
     {
-        float range = Vector3.Distance(gameObject.transform.position, ownship.transform.position) * YARDS_PER_METRE;
+        range = Vector3.Distance(gameObject.transform.position, ownship.transform.position) * YARDS_PER_METRE;
 
         textMeshProUGUI.text = range.ToString("F0");
 
