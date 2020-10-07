@@ -10,16 +10,24 @@ public class UserDrivenManager : MonoBehaviour
     private DistanceDisplay distanceDisplay;
     public float rangeFromTrack = 0f;
     bool monitoringRange = false;
-    public float fadeInSpeed = 2f;
-    public float fadeOutSpeed = 2f;
+    public float fadeOutSpeed = 1f;
     public TextMeshProUGUI message;
+    public GameObject tryAgainButton;
+    public GameObject exitButton;
 
     public GameObject panel;
+
+    public string rangeMessage;
 
     // Start is called before the first frame update
     void Start()
     {
         distanceDisplay = DistanceDisplay.GetComponent<DistanceDisplay>();
+        tryAgainButton.SetActive(false);
+        exitButton.SetActive(false);
+
+
+
     }
 
     // Update is called once per frame
@@ -37,7 +45,7 @@ public class UserDrivenManager : MonoBehaviour
 
     private void TransitionOutDueToRange()
     {
-        StartCoroutine(FadeInWithMessage("Range"));
+        StartCoroutine(FadeInWithMessage(rangeMessage));
     }
 
     private IEnumerator FadeInWithMessage(string text)
@@ -48,8 +56,21 @@ public class UserDrivenManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
+        tryAgainButton.SetActive(true);
+        exitButton.SetActive(true);
+
         message.text = text;
 
 
+    }
+
+    public void TryAgain()
+    {
+        Debug.Log("Try again");
+    }
+
+    public void Exit()
+    {
+        Debug.Log("Exit");
     }
 }
