@@ -1,5 +1,5 @@
 1) Notice when off track and end scene						- DONE
-2) Notice when within 100 yards of ship and end scene	
+2) Notice when within 100 yards of ship and end scene		- DONE	
 3) Notice when more than 30s from planned ETA and end scene
 4) Notice when at end of track and end scene
 5) Instructions for user driven

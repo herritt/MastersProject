@@ -26,6 +26,8 @@ public class UserDrivenManager : MonoBehaviour
     public string cpaMessage;
 
     public float otherShipRangeCutOff;
+
+    public GameObject endPoint;
     
     // Start is called before the first frame update
     void Start()
@@ -50,15 +52,26 @@ public class UserDrivenManager : MonoBehaviour
        
         if (range > 200f && monitoringRange)
         {
-            TransitionOutDueToRange();
+            TransitionOutWithMessage(rangeMessage);
         }
 
+        //check if within 100 yards of another ship, and if so, end scene
         if (isTooCloseToOtherShip())
         {
-            TransitionOutDueToCPAToOtherShip();
+            TransitionOutWithMessage(cpaMessage);
         }
 
         Debug.Log("Update");
+    }
+
+    public void OnEndOfPassage()
+    {
+        TransitionOutWithMessage("end of passage");
+    }
+
+    private bool isAtEndOfNavigationPassage()
+    {
+        throw new NotImplementedException();
     }
 
     private bool isTooCloseToOtherShip()
@@ -69,24 +82,17 @@ public class UserDrivenManager : MonoBehaviour
 
             if (range < otherShipRangeCutOff)
             {
-                TransitionOutDueToCPAToOtherShip();
+                return true;
                    
             }
         }
 
-        
-
         return false;
     }
 
-    private void TransitionOutDueToCPAToOtherShip()
+    private void TransitionOutWithMessage(string message)
     {
-        StartCoroutine(FadeInWithMessage(cpaMessage));
-    }
-
-    private void TransitionOutDueToRange()
-    {
-        StartCoroutine(FadeInWithMessage(rangeMessage));
+        StartCoroutine(FadeInWithMessage(message));
     }
 
     private IEnumerator FadeInWithMessage(string text)
