@@ -64,13 +64,5 @@ public class UserDrivenManager : MonoBehaviour
 
     }
 
-    public void TryAgain()
-    {
-        Debug.Log("Try again");
-    }
 
-    public void Exit()
-    {
-        Debug.Log("Exit");
-    }
 }
