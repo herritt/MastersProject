@@ -1084,6 +1084,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ac6877d5d089c44cb91d10e19d11d9f, type: 3}
+--- !u!1 &188051488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1171684472522874, guid: 74d0740f4abc7e54fab50d33af2582da,
+    type: 3}
+  m_PrefabInstance: {fileID: 683478178}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &188710268
 GameObject:
   m_ObjectHideFlags: 0
@@ -1644,6 +1650,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 425479931512601876, guid: 8ac6877d5d089c44cb91d10e19d11d9f,
     type: 3}
   m_PrefabInstance: {fileID: 1405495951}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &368797358 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1042197431107668, guid: ec5d6bc6e2d4942448a8b3d9eddf3865,
+    type: 3}
+  m_PrefabInstance: {fileID: 445222783}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &384183951 stripped
 Transform:
@@ -9125,14 +9137,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DistanceDisplay: {fileID: 957272219}
-  rangeFromTrack: 0
   fadeOutSpeed: 2
   message: {fileID: 1013818847}
   tryAgainButton: {fileID: 1226494605}
   exitButton: {fileID: 889109404}
+  otherShips:
+  - {fileID: 103742561}
+  - {fileID: 368797358}
+  - {fileID: 188051488}
+  ownship: {fileID: 1541904354}
   panel: {fileID: 84924260}
   rangeMessage: You were more than 200 yards away from track. Try to stay within 200
     yards.
+  cpaMessage: You came within 100 yards of another ship. Keep further away.
+  otherShipRangeCutOff: 100
 --- !u!1 &1636846020
 GameObject:
   m_ObjectHideFlags: 0

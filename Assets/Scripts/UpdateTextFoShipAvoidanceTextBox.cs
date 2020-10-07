@@ -51,12 +51,11 @@ public class UpdateTextFoShipAvoidanceTextBox : MonoBehaviour
     {
         float cpa = CalculateCPA() * YARDS_PER_METRE;
         float speed = trackDriver.AverageSpeed();
-
-        float range = Vector3.Distance(thisShip.transform.position, ownship.transform.position);
+        float range = getRangeInYards();
 
         textMeshProUGUI.text =
             "Speed: \t" + speed.ToString("F1") + "Kts" + "\n" +
-            "Range: \t" + (range * YARDS_PER_METRE).ToString("F0") + "yds\n" +
+            "Range: \t" + range.ToString("F0") + "yds\n" +
             "CPA: \t\t" + cpa.ToString("F0") + "yds";
 
         //highlight panel if cpa is within 200 yards
@@ -99,4 +98,8 @@ public class UpdateTextFoShipAvoidanceTextBox : MonoBehaviour
         return cpa;
     }
 
+    public float getRangeInYards()
+    {
+        return Vector3.Distance(thisShip.transform.position, ownship.transform.position) * YARDS_PER_METRE;
+    }
 }
