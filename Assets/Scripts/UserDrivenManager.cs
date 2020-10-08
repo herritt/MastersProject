@@ -24,11 +24,16 @@ public class UserDrivenManager : MonoBehaviour
 
     public string rangeMessage;
     public string cpaMessage;
+    public string tooLateMessage;
 
     public float otherShipRangeCutOff;
 
     public GameObject endPoint;
-    
+
+    public GameObject passageManagerGameObject;
+    private PassageManager passageManager;
+    float passageDurationInMinutes;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +41,9 @@ public class UserDrivenManager : MonoBehaviour
         tryAgainButton.SetActive(false);
         exitButton.SetActive(false);
 
+        passageManager = passageManagerGameObject.GetComponent<PassageManager>();
 
+        passageDurationInMinutes = passageManager.passageDurationInMinutes;
 
     }
 
@@ -61,7 +68,27 @@ public class UserDrivenManager : MonoBehaviour
             TransitionOutWithMessage(cpaMessage);
         }
 
-        Debug.Log("Update");
+        if (isTooLate())
+        {
+            TransitionOutWithMessage(tooLateMessage);
+        }
+    }
+
+    public bool isTooLate()
+    {
+        
+        float timeRemainingInHours = passageManager.TimeRemainingInHours();
+
+        float thirtySeconds = 30f / 3600;
+
+        Debug.Log("time remaining: " + timeRemainingInHours + " thirtySeconds: " + thirtySeconds);
+
+        if (timeRemainingInHours < -thirtySeconds)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     public void OnEndOfPassage()

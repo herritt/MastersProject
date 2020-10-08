@@ -1773,7 +1773,7 @@ MonoBehaviour:
   - Arrive at the end of the passage +/- 30 seconds of planned ETA
   - Stay at least 100 yards away from other ships
   displayDurations: 030000000300000003000000030000000300000003000000
-  pausesBetweenInstructions: 01000000010000000100000001000000010000000100000068010000
+  pausesBetweenInstructions: 010000000100000001000000010000000100000001000000e8030000
   instruction: {fileID: 1936280276}
   sceneTransition: {fileID: 1148807311}
 --- !u!1001 &445130257
@@ -3231,6 +3231,8 @@ GameObject:
   - component: {fileID: 792546923}
   - component: {fileID: 792546922}
   - component: {fileID: 792546921}
+  - component: {fileID: 792546925}
+  - component: {fileID: 792546926}
   m_Layer: 0
   m_Name: EndOfPassage
   m_TagString: Untagged
@@ -3258,7 +3260,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792546920}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3306,11 +3308,40 @@ Transform:
   m_GameObject: {fileID: 792546920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2845.7, y: 72.7, z: 1325.5}
-  m_LocalScale: {x: 214.8925, y: 156.59908, z: 25.932}
+  m_LocalScale: {x: 1737.7728, y: 156.59908, z: 25.932}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &792546925
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792546920}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &792546926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792546920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a883a8be987b1424497100b2b627ee86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userManagerObject: {fileID: 1635748031}
 --- !u!1 &806762297
 GameObject:
   m_ObjectHideFlags: 0
@@ -9242,8 +9273,11 @@ MonoBehaviour:
   rangeMessage: You were more than 200 yards away from track. Try to stay within 200
     yards.
   cpaMessage: You came within 100 yards of another ship. Keep further away.
+  tooLateMessage: You are too late. Try to get to the end of the passage within 30s
+    of the required time.
   otherShipRangeCutOff: 100
   endPoint: {fileID: 998673627}
+  passageManagerGameObject: {fileID: 2120367829}
 --- !u!1 &1636846020
 GameObject:
   m_ObjectHideFlags: 0

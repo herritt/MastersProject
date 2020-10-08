@@ -130,7 +130,7 @@ public class PassageManager : MonoBehaviour
         return distance / time;
     }
 
-    float TimeRemainingInHours()
+    public float TimeRemainingInHours()
     {
 
         float timeInSecondsSinceStart = Time.timeSinceLevelLoad;
