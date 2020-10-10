@@ -46,6 +46,8 @@ public class TrackDriver : MonoBehaviour
     public TextMeshProUGUI orderedSpeed;
     private Coroutine showTextRoutine;
 
+    public GameObject[] legs;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -95,6 +97,30 @@ public class TrackDriver : MonoBehaviour
 
     }
 
+    public void OnColliderEnter(string legName)
+    {
+        //update the current waypoint
+        if (drive_mode == DRIVE_MODE.MANUAL)
+        {
+            foreach (GameObject leg in legs)
+            {
+                if (leg.name.Equals(legName))
+                {
+                    Transform endPoint = leg.transform.Find("endpoint");
+
+                    for (int i = 0; i < waypoints.Length; i++)
+                    {
+                        if (waypoints[i].transform.Equals(endPoint))
+                        {
+                            currentWaypointIndex = i;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -102,25 +128,26 @@ public class TrackDriver : MonoBehaviour
 
         if (currentWaypointIndex == waypoints.Length) return;
 
-        if (Vector3.Distance(waypoints[currentWaypointIndex].transform.position, ship.transform.position) < WAYPOINT_CHECK_DISTANCE)
-        {
-            if (currentWaypointIndex < waypoints.Length)
-            {
-                currentWaypointIndex++;
-
-            }
-
-            if (currentWaypointIndex < waypoints.Length)
-            {
-                waypoint = waypoints[currentWaypointIndex].transform.position;
-                waypoint = new Vector3(waypoint.x, ship.transform.position.y, waypoint.z);
-            }
-
-
-        }
-
         if (drive_mode == DRIVE_MODE.AUTO)
         {
+            if (Vector3.Distance(waypoints[currentWaypointIndex].transform.position, ship.transform.position) < WAYPOINT_CHECK_DISTANCE)
+            {
+                if (currentWaypointIndex < waypoints.Length)
+                {
+                    currentWaypointIndex++;
+
+                }
+
+                if (currentWaypointIndex < waypoints.Length)
+                {
+                    waypoint = waypoints[currentWaypointIndex].transform.position;
+                    waypoint = new Vector3(waypoint.x, ship.transform.position.y, waypoint.z);
+                }
+
+
+            }
+
+
             relativePos = waypoint - ship.transform.position;
             ship.transform.rotation = Quaternion.Lerp(ship.transform.rotation,
                 Quaternion.LookRotation(-relativePos), shipSpeed / 30 * Time.deltaTime);

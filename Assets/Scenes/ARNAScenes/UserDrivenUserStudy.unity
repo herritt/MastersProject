@@ -1485,6 +1485,9 @@ MonoBehaviour:
   SMG: 0
   drive_mode: 1
   orderedSpeed: {fileID: 952271868}
+  legs:
+  - {fileID: 1484110769}
+  - {fileID: 1228821843}
 --- !u!114 &229972644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6535,6 +6538,12 @@ Transform:
   m_Father: {fileID: 197420319}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1228821843 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 202536843908714251, guid: 0075c1547baa49741933c6dd6d1eb456,
+    type: 3}
+  m_PrefabInstance: {fileID: 1034485899}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1231805727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7823,6 +7832,7 @@ MonoBehaviour:
   SMG: 0
   drive_mode: 0
   orderedSpeed: {fileID: 0}
+  legs: []
 --- !u!1 &1398295090
 GameObject:
   m_ObjectHideFlags: 0
@@ -8244,6 +8254,7 @@ MonoBehaviour:
   SMG: 0
   drive_mode: 0
   orderedSpeed: {fileID: 0}
+  legs: []
 --- !u!1 &1447140546
 GameObject:
   m_ObjectHideFlags: 0
@@ -8557,6 +8568,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fef4326366d1c7c4c874cf509e190088, type: 3}
+--- !u!1 &1484110769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 202536843908714251, guid: 0075c1547baa49741933c6dd6d1eb456,
+    type: 3}
+  m_PrefabInstance: {fileID: 1092778040}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1484969860
 GameObject:
   m_ObjectHideFlags: 0
@@ -9361,6 +9378,7 @@ MonoBehaviour:
   SMG: 0
   drive_mode: 0
   orderedSpeed: {fileID: 0}
+  legs: []
 --- !u!4 &1645136394 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 425479931512601876, guid: 8ac6877d5d089c44cb91d10e19d11d9f,

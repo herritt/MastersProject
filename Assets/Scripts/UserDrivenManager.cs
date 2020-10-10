@@ -85,7 +85,7 @@ public class UserDrivenManager : MonoBehaviour
 
         float thirtySeconds = 30f / 3600;
 
-        Debug.Log("time remaining: " + timeRemainingInHours + " thirtySeconds: " + thirtySeconds);
+       //Debug.Log("time remaining: " + timeRemainingInHours + " thirtySeconds: " + thirtySeconds);
 
         if (timeRemainingInHours < -thirtySeconds)
         {

@@ -9,10 +9,12 @@ public class OnTrackCollision : MonoBehaviour
     public Material greenMaterial;
     public Material blackmMaterial;
 
+    public TrackDriver trackDriver;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        trackDriver = GetComponentInParent<TrackDriver>();
     }
 
     // Update is called once per frame
@@ -26,6 +28,11 @@ public class OnTrackCollision : MonoBehaviour
         if (other.transform.parent == null) return;
 
         MeshRenderer meshRenderer = other.transform.parent.Find("track").GetComponent<MeshRenderer>();
+
+        if (meshRenderer != null)
+        {
+            trackDriver.OnColliderEnter(other.transform.parent.name);
+        }
 
         if (other.name.Contains("left"))
         {          
