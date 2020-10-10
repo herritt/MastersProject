@@ -36,6 +36,8 @@ public class UserDrivenManager : MonoBehaviour
     private PassageManager passageManager;
     float passageDurationInMinutes;
 
+    bool isFinished = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +54,7 @@ public class UserDrivenManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isFinished) return;
 
         //check if more than 200 yards off track, and if so, end scene
         float range = distanceDisplay.range;
@@ -133,6 +135,7 @@ public class UserDrivenManager : MonoBehaviour
 
     private void TransitionOutWithMessage(string message)
     {
+        isFinished = true;
         StartCoroutine(FadeInWithMessage(message));
     }
 
