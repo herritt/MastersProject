@@ -1,7 +1,13 @@
 1) Notice when off track and end scene						- DONE
 2) Notice when within 100 yards of ship and end scene		- DONE	
-3) Notice when more than 30s from planned ETA and end scene
+3) Notice when more than 30s from planned ETA and end scene - DONE
 4) Notice when at end of passage and end scene				- DONE
 5) Instructions for user driven
+6) Fix detecting if on next track when far from tracks
+7) Update end of passage text with success or failure screen (too early) message
+8) Stop updating user study conditions if we met one arleady
+9) Stop second track from sinking?!?
+10) Update label at end of last track
+11) Think about what happens if the user tries to stop at the end
 
 

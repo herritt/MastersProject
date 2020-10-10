@@ -25,6 +25,8 @@ public class UserDrivenManager : MonoBehaviour
     public string rangeMessage;
     public string cpaMessage;
     public string tooLateMessage;
+    public string successMessage;
+    public string tooEarlyMessage;
 
     public float otherShipRangeCutOff;
 
@@ -93,7 +95,19 @@ public class UserDrivenManager : MonoBehaviour
 
     public void OnEndOfPassage()
     {
-        TransitionOutWithMessage("end of passage");
+        float timeRemainingInHours = passageManager.TimeRemainingInHours();
+        float thirtySeconds = 30f / 3600;
+
+        if (timeRemainingInHours > thirtySeconds)
+        {
+            TransitionOutWithMessage(tooEarlyMessage);
+        }
+        else
+        {
+            TransitionOutWithMessage(successMessage);
+        }
+
+            
     }
 
     private bool isAtEndOfNavigationPassage()
