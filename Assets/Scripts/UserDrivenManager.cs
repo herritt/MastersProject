@@ -9,8 +9,6 @@ public class UserDrivenManager : MonoBehaviour
 {
     private const float YARDS_PER_METRE = 1.094f;
 
-    public GameObject DistanceDisplay;
-    private DistanceDisplay distanceDisplay;
     bool monitoringRange = false;
     public float fadeOutSpeed = 1f;
     public TextMeshProUGUI message;
@@ -41,7 +39,6 @@ public class UserDrivenManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        distanceDisplay = DistanceDisplay.GetComponent<DistanceDisplay>();
         tryAgainButton.SetActive(false);
         exitButton.SetActive(false);
 
@@ -55,16 +52,6 @@ public class UserDrivenManager : MonoBehaviour
     void Update()
     {
         if (isFinished) return;
-
-        //check if more than 200 yards off track, and if so, end scene
-        float range = distanceDisplay.range;
-
-        if (range < 200) monitoringRange = true;
-       
-        if (range > 200f && monitoringRange)
-        {
-            TransitionOutWithMessage(rangeMessage);
-        }
 
         //check if within 100 yards of another ship, and if so, end scene
         if (isTooCloseToOtherShip())
@@ -93,6 +80,11 @@ public class UserDrivenManager : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void OnTooFarOffTrack()
+    {
+        TransitionOutWithMessage(rangeMessage);
     }
 
     public void OnEndOfPassage()

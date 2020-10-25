@@ -1455,6 +1455,7 @@ Transform:
   - {fileID: 55447301}
   - {fileID: 1541904358}
   - {fileID: 1513959685}
+  - {fileID: 1196244597}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -13.147, z: 0}
@@ -1503,6 +1504,7 @@ MonoBehaviour:
   redMaterial: {fileID: 2100000, guid: ced10e17f09728648bdda572a15342b2, type: 2}
   greenMaterial: {fileID: 2100000, guid: 23ae45f2331adaa4fbf2e6631bbd6f19, type: 2}
   blackmMaterial: {fileID: 2100000, guid: 15840e31ff3acca4e8bcd9efbeadb382, type: 2}
+  trackDriver: {fileID: 0}
 --- !u!65 &229972645
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6089,6 +6091,65 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1196244596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1196244597}
+  - component: {fileID: 1196244598}
+  - component: {fileID: 1196244599}
+  m_Layer: 0
+  m_Name: TooFarOffCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1196244597
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196244596}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 9.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 229972642}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1196244598
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196244596}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 182
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1196244599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196244596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b756dc09a5b19ad47989df676b8c5631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userManagerObject: {fileID: 1635748031}
 --- !u!1 &1207079085
 GameObject:
   m_ObjectHideFlags: 0
@@ -9281,7 +9342,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec36b57fa381fc449c604413703c31d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DistanceDisplay: {fileID: 957272219}
   fadeOutSpeed: 2
   message: {fileID: 1013818847}
   tryAgainButton: {fileID: 1226494605}
