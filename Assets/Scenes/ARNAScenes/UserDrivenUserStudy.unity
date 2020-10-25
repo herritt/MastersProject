@@ -1449,7 +1449,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 229972641}
   m_LocalRotation: {x: -0, y: -0.114481926, z: -0, w: 0.9934253}
-  m_LocalPosition: {x: -2757, y: 19.800003, z: 3247}
+  m_LocalPosition: {x: -2735.2, y: 19.800003, z: 3247}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 55447301}
@@ -6117,7 +6117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196244596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 9.9}
+  m_LocalPosition: {x: 0, y: -12.8, z: 9.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 229972642}
@@ -6131,9 +6131,9 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196244596}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 182
+  m_Radius: 115
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -7828,7 +7828,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1370905537}
   - component: {fileID: 1370905539}
-  - component: {fileID: 1370905538}
   m_Layer: 0
   m_Name: FV
   m_TagString: Untagged
@@ -7852,22 +7851,6 @@ Transform:
   m_Father: {fileID: 1985767038}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!54 &1370905538
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370905536}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 4
-  m_CollisionDetection: 0
 --- !u!114 &1370905539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12077,7 +12060,7 @@ MonoBehaviour:
   trackDriver: {fileID: 229972643}
   ship: {fileID: 229972641}
   staticDTG: {fileID: 1447140546}
-  passageDurationInMinutes: 6
+  passageDurationInMinutes: 4
 --- !u!1001 &2142394710
 PrefabInstance:
   m_ObjectHideFlags: 0
