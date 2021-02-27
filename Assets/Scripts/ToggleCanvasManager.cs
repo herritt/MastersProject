@@ -8,11 +8,11 @@ public class ToggleCanvasManager : MonoBehaviour
     private List<GameObject> objectsInSight = new List<GameObject>();
     public GameObject ownship;
     public SceneTransition sceneTransition;
+    public GameObject canvasGroupObject;
 
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     public void Update()
@@ -63,12 +63,28 @@ public class ToggleCanvasManager : MonoBehaviour
         {
             GameObject obj = (GameObject)sortedList.GetByIndex(0);
 
-            obj.GetComponentInChildren<Canvas>().enabled = !obj.GetComponentInChildren<Canvas>().isActiveAndEnabled;
+            //obj.GetComponentInChildren<Canvas>().enabled = !obj.GetComponentInChildren<Canvas>().isActiveAndEnabled;
+
+            CanvasGroup canvasGroup = obj.transform.GetComponentInChildren<CanvasGroup>();
+
+            bool toggledOff = canvasGroup.alpha < .9f;
+
+            if (toggledOff)
+            {
+                canvasGroup.alpha = 1f;
+            }
+            else
+            {
+                canvasGroup.alpha = 0.2f;
+            }
+
+
             Transform post = obj.transform.FindChildRecursive("Post");
 
             if (post != null)
             {
-                post.gameObject.SetActive(obj.GetComponentInChildren<Canvas>().enabled);
+                post.gameObject.SetActive(toggledOff);
+
             }
 
 

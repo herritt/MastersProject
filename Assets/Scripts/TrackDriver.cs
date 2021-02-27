@@ -37,6 +37,8 @@ public class TrackDriver : MonoBehaviour
     private int speedIndex;
 
     public DRIVE_MODE drive_mode;
+    public GameObject portThrottle;
+    public GameObject stbdThrottle;
 
     Vector3 previousPosition = Vector3.zero;
 
@@ -45,7 +47,6 @@ public class TrackDriver : MonoBehaviour
 
     public TextMeshProUGUI orderedSpeed;
     private Coroutine showTextRoutine;
-
     public GameObject[] legs;
 
     // Start is called before the first frame update
@@ -170,26 +171,39 @@ public class TrackDriver : MonoBehaviour
 
             //handle speed
             bool speedChanged = false;
+            bool forwardThrottle = false;
 
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                speedChanged = true;
+
+                if (shipSpeed < MAX_SPEED)
+                {
+                    forwardThrottle = true;
+                    speedChanged = true;
+                }
+ 
                 shipSpeed += 1/KTS_TO_MPS;
 
                 if (shipSpeed > MAX_SPEED)
                 {
                     shipSpeed = MAX_SPEED;
                 }
+
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                speedChanged = true;
+                if (shipSpeed > MIN_SPEED)
+                {
+                    speedChanged = true;
+                }
+
                 shipSpeed -= 1/KTS_TO_MPS;
 
                 if (shipSpeed < MIN_SPEED)
                 {
                     shipSpeed = MIN_SPEED;
                 }
+
             }
 
 
@@ -206,8 +220,7 @@ public class TrackDriver : MonoBehaviour
                     StopCoroutine(showTextRoutine);
                 }
 
-
-
+                AnimateThrottle(forwardThrottle);
                 showTextRoutine = StartCoroutine(ShowForTime(orderedSpeed, 1f));
 
                 speedChanged = false;
@@ -216,9 +229,22 @@ public class TrackDriver : MonoBehaviour
             
         }
 
+        
+
         //calculate a position ahead of the ship based on current heading and tidal set and move towards it
         m_Rigidbody.velocity = tidalSet * tidalSetSpeed - (transform.forward * shipSpeed);
 
+
+    }
+
+    private void AnimateThrottle(bool forward)
+    {
+        float rotate = -2f;
+
+        if (!forward) rotate = 2f;
+
+        stbdThrottle.transform.Rotate(new Vector3(rotate, 0, 0));
+        portThrottle.transform.Rotate(new Vector3(rotate, 0, 0));
 
     }
 
