@@ -49,6 +49,8 @@ public class TrackDriver : MonoBehaviour
     private Coroutine showTextRoutine;
     public GameObject[] legs;
 
+    public GameObject wheel;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -163,10 +165,14 @@ public class TrackDriver : MonoBehaviour
             if (Input.GetKey(KeyCode.RightArrow))
             {
                 ship.transform.rotation *= Quaternion.Euler(0, 1f * rotateSpeed * Time.deltaTime, 0);
+                wheel.transform.RotateAround(wheel.transform.position, ship.transform.forward, 20 * Time.deltaTime);
+
             }
             else if (Input.GetKey(KeyCode.LeftArrow))
             {
                 ship.transform.rotation *= Quaternion.Euler(0, -1f * rotateSpeed * Time.deltaTime, 0);
+                wheel.transform.RotateAround(wheel.transform.position, -ship.transform.forward, 20 * Time.deltaTime);
+
             }
 
             //handle speed

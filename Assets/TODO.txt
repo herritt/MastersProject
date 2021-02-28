@@ -11,8 +11,11 @@ COMPLETED
 10) Stop second track from sinking?!? - DONE
 11) Instructions for user driven - DONE
 12) When you toggle off billboards, keep the outline of the billboard as a reminder that it is still there - DONE
+13) animate throttle - DONE
+
 
 TODO
 1) Think about what happens if the user tries to stop at the end
-2) show unit of measurement?
+2) animate steering wheel during user driven study
+3) make user study longer
 
