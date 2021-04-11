@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ARNAScenes/UserDrivenUserStudy.unity
     guid: fd08e1a19eda09347b376fa5a8c0b7f1
+  - enabled: 1
+    path: Assets/Scenes/RiskPrivacyScene.unity
+    guid: 8ace7427b9745ed4386c08b046bbfef8
   m_configObjects: {}

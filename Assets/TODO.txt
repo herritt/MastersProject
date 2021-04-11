@@ -4,7 +4,7 @@ COMPLETED
 3) Notice when more than 30s from planned ETA and end scene - DONE
 4) Notice when at end of passage and end scene				- DONE
 5) Fix determining current waypoint if far from track		- DONE
-6) Stop updating user study conditions if we met one already - DONE
+
 7) Update label at end of last track						- DONE
 8) Fix distance off track when regaining track at 90 degrees - DONE
 9) Update end of passage text with success or failure screen (too early) message - DONE
@@ -12,10 +12,8 @@ COMPLETED
 11) Instructions for user driven - DONE
 12) When you toggle off billboards, keep the outline of the billboard as a reminder that it is still there - DONE
 13) animate throttle - DONE
-
+14) animate steering wheel during user driven study - DONE
 
 TODO
-1) Think about what happens if the user tries to stop at the end
-2) animate steering wheel during user driven study
-3) make user study longer
-
+1) make user study longer
+6) Stop updating user study conditions if we met one already

@@ -9,7 +9,7 @@ public class PassageManager : MonoBehaviour
     public GameObject ship;
     public GameObject staticDTG;
     float[] distances = null;
-    public float passageDurationInMinutes = 10;
+    public float passageDurationInMinutes = 15;
     Vector3 lastPostion;
 
     IEnumerator UpdateDisplay()
