@@ -920,6 +920,16 @@ PrefabInstance:
       propertyPath: m_ReferenceResolution.y
       value: 768
       objectReference: {fileID: 0}
+    - target: {fileID: 1462539970522154604, guid: b730c4639196c954ba8e25ec80c9d752,
+        type: 3}
+      propertyPath: m_text
+      value: "\xA9 Copyright of Randy Herritt, 2021"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462539970522154604, guid: b730c4639196c954ba8e25ec80c9d752,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 33
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b730c4639196c954ba8e25ec80c9d752, type: 3}
 --- !u!1001 &6724281534256777716

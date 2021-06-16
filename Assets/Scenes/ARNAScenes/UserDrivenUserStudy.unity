@@ -1945,6 +1945,11 @@ PrefabInstance:
       propertyPath: ownship
       value: 
       objectReference: {fileID: 55447300}
+    - target: {fileID: 8381092470787096567, guid: 0075c1547baa49741933c6dd6d1eb456,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0075c1547baa49741933c6dd6d1eb456, type: 3}
 --- !u!1 &416532837
@@ -5395,6 +5400,11 @@ PrefabInstance:
       propertyPath: ownship
       value: 
       objectReference: {fileID: 55447300}
+    - target: {fileID: 8381092470787096567, guid: 0075c1547baa49741933c6dd6d1eb456,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0075c1547baa49741933c6dd6d1eb456, type: 3}
 --- !u!1 &1043839380
@@ -6033,6 +6043,11 @@ PrefabInstance:
       propertyPath: ownship
       value: 
       objectReference: {fileID: 55447300}
+    - target: {fileID: 8381092470787096567, guid: 0075c1547baa49741933c6dd6d1eb456,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0075c1547baa49741933c6dd6d1eb456, type: 3}
 --- !u!1 &1115710226

@@ -4,7 +4,6 @@ COMPLETED
 3) Notice when more than 30s from planned ETA and end scene - DONE
 4) Notice when at end of passage and end scene				- DONE
 5) Fix determining current waypoint if far from track		- DONE
-
 7) Update label at end of last track						- DONE
 8) Fix distance off track when regaining track at 90 degrees - DONE
 9) Update end of passage text with success or failure screen (too early) message - DONE
@@ -13,7 +12,11 @@ COMPLETED
 12) When you toggle off billboards, keep the outline of the billboard as a reminder that it is still there - DONE
 13) animate throttle - DONE
 14) animate steering wheel during user driven study - DONE
+15) NAN for speed was shown on fishing vessel - DONE
 
 TODO
 1) make user study longer
-6) Stop updating user study conditions if we met one already
+2) Stop updating user study conditions if we met one already
+3) last track and end waypont didn't line up
+4) SR went to thousand of knots, even though I arrived on time
+5) last track needs a ship

@@ -309,6 +309,8 @@ public class TrackDriver : MonoBehaviour
 
         }
 
+        if (COUNT_SIZE - num_non_zeros == 0) return 0;
+        
         return sum / (COUNT_SIZE - num_non_zeros);
     }
 
