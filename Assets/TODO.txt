@@ -17,8 +17,8 @@ COMPLETED
 17) SR went to thousand of knots, even though I arrived on time - DONE
 18) make user study longer - DONE
 19) last track and end waypont didn't line up - DONE
+20) colour of next track is highlihting the wrong colour - DONE
 
 TODO
 
 1) last track needs a ship
-2) colour of next track is highlihting the wrong colour

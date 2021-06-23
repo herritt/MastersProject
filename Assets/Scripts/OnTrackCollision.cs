@@ -7,9 +7,9 @@ public class OnTrackCollision : MonoBehaviour
 
     public Material redMaterial;
     public Material greenMaterial;
-    public Material blackmMaterial;
+    public Material blackMaterial;
 
-    public TrackDriver trackDriver;
+    private TrackDriver trackDriver;
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +44,7 @@ public class OnTrackCollision : MonoBehaviour
         }
         else
         {
-            meshRenderer.material = blackmMaterial;
+            meshRenderer.material = blackMaterial;
         }
         
     }
