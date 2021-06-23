@@ -13,10 +13,12 @@ COMPLETED
 13) animate throttle - DONE
 14) animate steering wheel during user driven study - DONE
 15) NAN for speed was shown on fishing vessel - DONE
+16) Stop updating user study conditions if we met one already - DONE
+17) SR went to thousand of knots, even though I arrived on time - DONE
+18) make user study longer - DONE
+19) last track and end waypont didn't line up - DONE
 
 TODO
-1) make user study longer
-2) Stop updating user study conditions if we met one already
-3) last track and end waypont didn't line up
-4) SR went to thousand of knots, even though I arrived on time
-5) last track needs a ship
+
+1) last track needs a ship
+2) colour of next track is highlihting the wrong colour

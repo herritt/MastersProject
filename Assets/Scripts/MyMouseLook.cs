@@ -37,7 +37,7 @@ public class MyMouseLook : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            //toggledOn = !toggledOn;
+            toggledOn = !toggledOn;
         }
 
         if (!toggledOn) return;
