@@ -53,6 +53,8 @@ public class UpdateTextFoShipAvoidanceTextBox : MonoBehaviour
         float speed = trackDriver.AverageSpeed();
         float range = getRangeInYards();
 
+
+
         textMeshProUGUI.text =
             "Speed: \t" + speed.ToString("F1") + "Kts" + "\n" +
             "Range: \t" + range.ToString("F0") + "yds\n" +

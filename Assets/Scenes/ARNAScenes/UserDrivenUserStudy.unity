@@ -799,7 +799,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownship: {fileID: 1541904354}
   sceneTransition: {fileID: 1148807311}
-  canvasGroupObject: {fileID: 0}
+  canvasGroupObject: {fileID: 455066211}
 --- !u!1 &94687846
 GameObject:
   m_ObjectHideFlags: 0
@@ -1595,6 +1595,7 @@ MonoBehaviour:
   legs:
   - {fileID: 1484110769}
   - {fileID: 1228821843}
+  - {fileID: 1458892684}
   wheel: {fileID: 7170543261579581018}
 --- !u!114 &229972644
 MonoBehaviour:
@@ -8758,6 +8759,12 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &1458892684 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 202536843908714251, guid: 0075c1547baa49741933c6dd6d1eb456,
+    type: 3}
+  m_PrefabInstance: {fileID: 414575635}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1484110769 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 202536843908714251, guid: 0075c1547baa49741933c6dd6d1eb456,
