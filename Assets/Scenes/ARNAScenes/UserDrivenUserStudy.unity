@@ -1934,6 +1934,11 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8381092470787096567, guid: 0075c1547baa49741933c6dd6d1eb456,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8573425686945868105, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
       propertyPath: m_IsKinematic
@@ -5688,6 +5693,11 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8381092470787096567, guid: 0075c1547baa49741933c6dd6d1eb456,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8573425686945868105, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
       propertyPath: m_IsKinematic
@@ -6340,6 +6350,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_UseGravity
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381092470787096567, guid: 0075c1547baa49741933c6dd6d1eb456,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8573425686945868105, guid: 0075c1547baa49741933c6dd6d1eb456,
         type: 3}
@@ -13022,7 +13037,7 @@ MonoBehaviour:
   trackDriver: {fileID: 229972643}
   ship: {fileID: 229972641}
   staticDTG: {fileID: 1447140546}
-  passageDurationInMinutes: 4
+  passageDurationInMinutes: 8
 --- !u!1001 &2142394710
 PrefabInstance:
   m_ObjectHideFlags: 0
