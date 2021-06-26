@@ -1000,6 +1000,7 @@ MonoBehaviour:
   stbdThrottle: {fileID: 0}
   orderedSpeed: {fileID: 0}
   legs: []
+  wheel: {fileID: 0}
 --- !u!114 &194020950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1014,8 +1015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redMaterial: {fileID: 2100000, guid: ced10e17f09728648bdda572a15342b2, type: 2}
   greenMaterial: {fileID: 2100000, guid: 23ae45f2331adaa4fbf2e6631bbd6f19, type: 2}
-  blackmMaterial: {fileID: 2100000, guid: 15840e31ff3acca4e8bcd9efbeadb382, type: 2}
-  trackDriver: {fileID: 0}
+  blackMaterial: {fileID: 2100000, guid: 15840e31ff3acca4e8bcd9efbeadb382, type: 2}
 --- !u!65 &194020951
 BoxCollider:
   m_ObjectHideFlags: 0
