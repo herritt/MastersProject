@@ -22,6 +22,11 @@ public class CPA
         Vector3 w0 = track1.p0 - track2.p0;
         float cpatime = -Vector3.Dot(w0, dv) / dv2;
 
+        if (float.IsNaN(cpatime))
+        {
+            return 0f;
+        }
+
         return cpatime;
     }
 

@@ -89,7 +89,14 @@ public class UpdateTextFoShipAvoidanceTextBox : MonoBehaviour
 
         Track thisShipTrack = new Track();
         thisShipTrack.p0 = thisShip.transform.position;
-        Vector3 thisShipVelocityVector = (thisShip.transform.position - thisShipLastPosition) / trackDriver.shipSpeed;
+
+        float denominator = trackDriver.shipSpeed;
+        if (denominator == 0 || float.IsNaN(denominator))
+        {
+            denominator = 0.00001f;
+        }
+
+        Vector3 thisShipVelocityVector = (thisShip.transform.position - thisShipLastPosition) / denominator;
         thisShipTrack.v = thisShipVelocityVector;
 
         float cpa = cpaCalculator.CalculateCPADistance(ownShipTrack, thisShipTrack);
@@ -97,11 +104,23 @@ public class UpdateTextFoShipAvoidanceTextBox : MonoBehaviour
         thisShipLastPosition = thisShip.transform.position;
         ownshipLastPostion = ownship.transform.position;
 
+        if (float.IsNaN(cpa))
+        {
+            cpa = 0f;
+        }
+
         return cpa;
     }
 
     public float getRangeInYards()
     {
-        return Vector3.Distance(thisShip.transform.position, ownship.transform.position) * YARDS_PER_METRE;
+        float range = Vector3.Distance(thisShip.transform.position, ownship.transform.position) * YARDS_PER_METRE;
+
+        if (float.IsNaN(range))
+        {
+            range = 0f;
+        }
+
+        return range;
     }
 }
