@@ -1030,6 +1030,7 @@ MonoBehaviour:
   stbdThrottle: {fileID: 0}
   orderedSpeed: {fileID: 0}
   legs: []
+  wheel: {fileID: 0}
 --- !u!114 &219703083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1044,8 +1045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redMaterial: {fileID: 2100000, guid: ced10e17f09728648bdda572a15342b2, type: 2}
   greenMaterial: {fileID: 2100000, guid: 23ae45f2331adaa4fbf2e6631bbd6f19, type: 2}
-  blackmMaterial: {fileID: 2100000, guid: 15840e31ff3acca4e8bcd9efbeadb382, type: 2}
-  trackDriver: {fileID: 0}
+  blackMaterial: {fileID: 0}
 --- !u!65 &219703084
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6758,9 +6758,9 @@ MonoBehaviour:
   textToDisplay:
   - Look around the scene by moving the mouse
   - In addition to the red Danger Area, you can now see the yellow Clearing Area
-  - Inside the area, you can no longer turn 180 degress away from the dangers
+  - Inside the area, you can no longer turn 180 degrees away from the dangers
   - Turning too sharply would result in grounding astern
-  - Watch the stern as the ship turns.
+  - Watch the stern as the ship turns
   - We need to turn more gradually to keep the stern from running aground
   displayDurations: 030000000400000004000000040000000600000006000000
   pausesBetweenInstructions: 02000000030000000400000008000000030000000400000014000000
