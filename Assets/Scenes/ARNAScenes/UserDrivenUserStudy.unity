@@ -1580,7 +1580,7 @@ MonoBehaviour:
   - {fileID: 1826995293}
   waypoint: {x: 0, y: 0, z: 0}
   currentWaypointIndex: 0
-  shipSpeed: 0
+  shipSpeed: 1
   ship: {fileID: 0}
   relativePos: {x: 0, y: 0, z: 0}
   tidalSetBearing: 255
